@@ -1,1 +1,0 @@
-/home/parsa/.config/hypr/colors.conf

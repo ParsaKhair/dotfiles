@@ -1,0 +1,23 @@
+[general]
+import = [
+	"~/.config/alacritty/themes/themes/gruvbox_dark.toml"
+]
+
+[font]
+size=8.0
+
+[window]
+padding = {x=5, y=5}
+dynamic_padding = true
+
+[keyboard]
+bindings = [
+   {key="-", mods="Control", action="DecreaseFontSize"},
+   {key="+", mods="Control", action="IncreaseFontSize"},
+   {key="0", mods="Control", action="ResetFontSize"},
+   {key="k", mods="Control", action="ScrollHalfPageUp"},
+   {key="j", mods="Control", action="ScrollHalfPageDown"},
+   {key="j", mods="Control", action="ScrollHalfPageDown"},
+   
+]
+
