@@ -1,0 +1,1 @@
+/home/parsa/.config/hypr/hyprpaper.conf
