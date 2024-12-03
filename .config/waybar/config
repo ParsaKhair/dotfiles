@@ -2,7 +2,7 @@
 {
     "layer": "top",
     "position": "top",
-    "spacing": 0,
+    "spacing": 5,
     "height": 34,
     "modules-left": [
         "custom/logo",
