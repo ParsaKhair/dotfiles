@@ -110,7 +110,9 @@ window#waybar.hidden {
 #battery.critical,
 #battery.urgent {
   background-color: #ff0000;
-  color: #FFFF00;
+  background-color: #c75a5a;
+  /*color: #FFFF00;
+   */
 }
 
 #battery.charging {
