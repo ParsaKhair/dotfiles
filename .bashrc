@@ -36,4 +36,5 @@ alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 #PS1='\[\e[0m\] \[\e[01;35m\] \w > \[\e[0m\]' 
 PS1='\[\e[1;35m\]\u\[\e[36;1m\] \w \[\e[0m\]\$ \[\e[0m\]'
 
+alias nvim='nvim -u ~/.config/nvim/init.vim' 
 

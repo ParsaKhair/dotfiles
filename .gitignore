@@ -1,1 +1,8 @@
 nohup.out
+.config/evolution/
+.config/gh/
+.config/connections.db
+.thunderbird/*.default*
+.thunderbird/*.ini
+.librewolf/*.default*
+.librewolf/*.ini
