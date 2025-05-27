@@ -38,3 +38,4 @@ PS1='\[\e[1;35m\]\u\[\e[36;1m\] \w \[\e[0m\]\$ \[\e[0m\]'
 
 alias nvim='nvim -u ~/.config/nvim/init.vim' 
 
+export EDITOR='nvim'

@@ -9,7 +9,6 @@
         "hyprland/workspaces"
     ],
     "modules-center": [
-        "clock"
     ],
     "modules-right": [
         "tray",
@@ -17,7 +16,7 @@
         "network",
         "wireplumber",
         "battery",
-        "custom/power"
+	"clock"
     ],
     "wlr/taskbar": {
         "format": "{icon}",
@@ -125,7 +124,7 @@
                 "󰂂"
             ]
         },
-        "format-full": "Charged ",
+        "format-full": "",
         "interval": 5,
         "states": {
             "warning": 20,
