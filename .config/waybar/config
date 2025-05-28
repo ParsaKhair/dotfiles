@@ -1,14 +1,14 @@
 
 {
     "layer": "top",
-    "position": "bottom",
+    "position": "top",
     "spacing": 5,
-    "height": 34,
+    "height": 14,
     "modules-left": [
-        "custom/logo",
         "hyprland/workspaces"
     ],
     "modules-center": [
+        "tray"
     ],
     "modules-right": [
         "tray",
@@ -16,14 +16,15 @@
         "network",
         "wireplumber",
         "battery",
-	"clock"
+        "clock"
     ],
     "wlr/taskbar": {
+        "all-outputs": false,
         "format": "{icon}",
         "on-click": "activate",
         "on-click-right": "fullscreen",
         "icon-theme": "WhiteSur",
-        "icon-size": 25,
+        "icon-size": 20,
         "tooltip-format": "{title}"
     },
     "hyprland/workspaces": {
@@ -40,7 +41,6 @@
             "7": "7",
             "8": "8",
             "9": "9",
-            "active": "✨",
             "urgent": "!"
         },
         "persistent_workspaces": {
@@ -57,12 +57,13 @@
         "max-length": 10
     },
     "tray": {
-        "spacing": 10
+        "spacing": 10,
+        "icon-size": 21
     },
     "clock": {
         "tooltip-format": "{calendar}",
-        "format-alt": "  {:%a, %d %b %Y}",
-        "format": "  {:%I:%M %p}"
+        "format-alt": "{:%a, %d %b %Y}",
+        "format": "{:%I:%M %p}"
     },
     "network": {
         "format-wifi" : "{icon}",
