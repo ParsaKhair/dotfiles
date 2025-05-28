@@ -6,3 +6,6 @@ nohup.out
 .thunderbird/*.ini
 .librewolf/*.default*
 .librewolf/*.ini
+cc*
+*.swp
+*.swo
