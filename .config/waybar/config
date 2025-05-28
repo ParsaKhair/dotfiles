@@ -13,8 +13,8 @@
     "modules-right": [
         "tray",
         "memory",
-        "network",
         "wireplumber",
+        "network",
         "battery",
         "clock"
     ],

@@ -14,7 +14,7 @@ dynamic_padding = true
 bindings = [
    {key="-", mods="Control", action="DecreaseFontSize"},
    {key="+", mods="Control", action="IncreaseFontSize"},
-   {key="0", mods="Control", action="ResetFontSize"},
+   {key="0", mods="Super", action="ResetFontSize"},
    {key="k", mods="Control", action="ScrollHalfPageUp"},
    {key="j", mods="Control", action="ScrollHalfPageDown"},
    {key="j", mods="Control", action="ScrollHalfPageDown"},
