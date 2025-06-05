@@ -13,7 +13,7 @@
   "modules-right": [
     "tray",
     "memory",
-    "wireplumber",
+    "pulseaudio",
     "network",
     "battery",
     "clock"
@@ -84,6 +84,20 @@
       "format-bluetooth": "󰂰",
       "nospacing": 1,
       "tooltip-format": "Volume : {volume}%",
+      "format-muted": "󰝟",
+      "format-icons": {
+          "headphone": "",
+          "default": ["󰖀","󰕾",""]
+      },
+      "on-click": "pamixer -t",
+        "on-click-right": "~/.config/rofi/bluetooth.sh",
+      "scroll-step": 1
+  },
+  "pulseaudio": {
+      "format": "{icon}",
+      "format-bluetooth": "󰂰",
+      "nospacing": 1,
+      "tooltip-format": "{desc} \n Volume : {volume}%",
       "format-muted": "󰝟",
       "format-icons": {
           "headphone": "",
