@@ -1,0 +1,43 @@
+# Gruvbox Colors
+
+# Background color (dark0_hard)
+color=282828
+
+# Inside color
+inside-color=282828
+inside-clear-color=282828
+inside-ver-color=282828
+inside-wrong-color=cc241d
+
+# Ring color (orange/yellow accents)
+ring-color=d79921
+ring-clear-color=b16286
+ring-ver-color=458588
+ring-wrong-color=cc241d
+
+# Text color
+text-color=ebdbb2
+text-clear-color=ebdbb2
+text-ver-color=ebdbb2
+text-wrong-color=fbf1c7
+
+# Separator color
+separator-color=928374
+
+# Key hint circle
+key-hl-color=98971a
+bs-hl-color=fb4934
+
+# Screen blur (optional)
+# Requires swaylock-effects (not regular swaylock)
+blur=7
+
+# Indicator
+indicator
+indicator-radius=100
+indicator-thickness=7
+
+# Show failed attempts
+grace=10
+fade-in=0.2
+
