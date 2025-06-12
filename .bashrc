@@ -50,3 +50,4 @@ WALLPAPER=$(find "$WALLPAPER_DIR" -type f ! -name "$(basename "$CURRENT_WALL")" 
 
 # Apply the selected wallpaper
 hyprctl hyprpaper reload ,"$WALLPAPER"
+clear
