@@ -5,7 +5,7 @@ Find on github at https://github.com/sameemul-haque/dotfiles
 * {
   border: none;
   border-radius: 0;
-  min-height: 0;
+  min-height: 0px;
   font-family: JetBrainsMono Nerd Font;
   font-family: "Nimbus Sans", sans-serif;
   font-family: Arial, Helvetica, sans-serif;
@@ -75,6 +75,7 @@ window#waybar.hidden {
 #backlight,
 #wireplumber,
 #network,
+#custom-volume-bar,
 #pulseaudio,
 #clock,
 #tray {
@@ -85,6 +86,7 @@ window#waybar.hidden {
   color: #fbf1c7;
   background-color: #282828;
 }
+
 
 #custom-power {
   margin-right: 6px;
@@ -122,7 +124,8 @@ window#waybar.hidden {
   background-color: #fab387;
 }
 
-#wireplumber {
+#custom-volume-bar {
+  padding: 0 10px;
 }
 
 #network {
