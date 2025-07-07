@@ -10,3 +10,5 @@ cc*
 *.swp
 *.swo
 libreoffice/
+.config/libreoffice/
+.librewolf/firefox-mpris
