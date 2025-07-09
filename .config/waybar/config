@@ -8,7 +8,6 @@
     "hyprland/workspaces"
   ],
   "modules-center": [
-    "tray"
   ],
   "modules-right": [
     "tray",
