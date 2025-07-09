@@ -4,6 +4,11 @@ element {
   orientation: horizontal;
   children: [ element-icon, element-text ];
   spacing: 5px;
+  border-radius: 5px;
+}
+
+#window {
+  border-radius: 10px;
 }
 
 configuration {
