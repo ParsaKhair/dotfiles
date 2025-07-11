@@ -61,7 +61,7 @@ main() {
   fi
 
   # Determine if the bar should be visible based on the timer
-  if ((NOW - LAST_CHANGE_TIME < TIMEOUT_SECONDS)); then
+  if ((NOW - LAST_CHANGE_TIME > TIMEOUT_SECONDS)); then
     local volume_bar=$(generate_volume_bar "$CURRENT_VOLUME")
     # Output the JSON for Waybar
     echo "$volume_bar"
