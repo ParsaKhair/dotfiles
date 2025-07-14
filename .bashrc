@@ -51,3 +51,6 @@ WALLPAPER=$(find "$WALLPAPER_DIR" -type f ! -name "$(basename "$CURRENT_WALL")" 
 # Apply the selected wallpaper
 hyprctl hyprpaper reload ,"$WALLPAPER"
 clear
+
+# Sets ranger for download locations
+export XDG_OPEN_CMD="ranger --choosefile"

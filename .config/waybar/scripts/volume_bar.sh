@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Path to a temporary file to store the display state and timestamp
-STATE_FILE="~/.cache/waybar_volume_state"
+STATE_FILE="~/.cache/waybar_volume_level"
 TIMEOUT_SECONDS=3 # How long the volume bar should be visible
 
 # % values     0   1-2 2-3 3-4 4-5 5-6 6-7 7-8
@@ -64,7 +64,7 @@ main() {
   if ((NOW - LAST_CHANGE_TIME > TIMEOUT_SECONDS)); then
     local volume_bar=$(generate_volume_bar "$CURRENT_VOLUME")
     # Output the JSON for Waybar
-    echo "$volume_bar $CURRENT_VOLUME % now $NOW last $LAST_CHANGE_TIME"
+    echo "$volume_bar $CURRENT_VOLUME %"
   else
     # No recent change, hide the bar
     # Output empty JSON object to hide the module (thanks to hide-empty-text: true)
