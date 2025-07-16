@@ -11,9 +11,7 @@
   ],
   "modules-right": [
     "tray",
-    "memory",
     "pulseaudio",
-    "custom/volume-bar",
     "network",
     "battery",
     "clock"
@@ -80,17 +78,19 @@
     "nospacing": 1
   },
   "pulseaudio": {
-      "format": "{icon}",
-      "format-bluetooth": "󰂰",
+      "format": "{volume}%  {icon}",
+      "format-bluetooth": "󰂰   {volume}%",
       "nospacing": 1,
-      "tooltip-format": "{desc} \n Volume : {volume}%",
-      "format-muted": "󰝟",
+      "max-volume": 100,
+      "tooltip-format": "{desc} \n Volume: {volume}%",
+      "format-muted": "󰝟   {volume}%",
       "format-icons": {
           "headphone": "",
-          "default": ["󰖀","󰕾",""]
+          "default": ["󰖀","󰕾",""],
+          "car": "🚗"
       },
-      "on-click": "pamixer -t",
-        "on-click-right": "~/.config/rofi/bluetooth.sh",
+      "on-click": "~/.config/rofi/bluetooth.sh",
+        "on-click-right": "pamixer -t",
       "scroll-step": 1
   },
   "custom/volume-bar": {
@@ -140,7 +140,10 @@
           "warning": 20,
           "critical": 10
       },
-      "tooltip": false
+      "tooltip": true,
+      "tooltip-format-charging": "Draw: {power}W \n {timeTo} until charged",
+      "tooltip-format": "Draw: {power}W \n {time} left",
+      "full-at": 100
     },
     "custom/power": {
         "format": "󰤆",
