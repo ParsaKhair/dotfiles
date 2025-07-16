@@ -304,7 +304,7 @@ show_menu() {
 }
 
 # Rofi command to pipe into, can add any options here
-rofi_command="rofi -dmenu $* -p"
+rofi_command="rofi -theme $HOME/.config/rofi/themes/topright.rasi -dmenu $* -p"
 
 case "$1" in
 --status)

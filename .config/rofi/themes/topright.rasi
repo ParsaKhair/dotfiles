@@ -1,21 +1,31 @@
 @theme "gruvbox-dark-soft"
 
+* {
+  font-size: 12px;
+}
+
 element {
   orientation: horizontal;
   children: [ element-icon, element-text ];
   spacing: 5px;
   border-radius: 5px;
+  font-size: 12px;
 }
 
 #window {
   border-radius: 10px;
+  height: 10%;
+  width: 20%;
 }
 
 configuration {
     show-icons: true;
     modes: "window,drun,run,ssh,filebrowser,recursivebrowser";
     terminal: "alacritty";
+    location: 3;
+    anchor: northeast;
     font: "Arial 12";
+    xoffset: 1200;
 /*	location: 0;*/
 /*	yoffset: 0;*/
 /*	xoffset: 0;*/
