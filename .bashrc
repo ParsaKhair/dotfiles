@@ -29,7 +29,7 @@ alias sudo='doas'
 
 # Set up alias 'config' to replace 'git' for config interactions
 alias config='git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
-alias spotify='flatpak run --socket=wayland com.spotify.Client --enable-features=UseOzonePlatform --ozone-platform=wayland'
+alias spotify='nohup flatpak run --socket=wayland com.spotify.Client --enable-features=UseOzonePlatform --ozone-platform=wayland'
 
 # Changes how PS1 appears in bash
 #PS1='\[\e[1;32m\]\u\[\e[1;35m\]@\h\[\e[0m\] \w \$ '
