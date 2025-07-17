@@ -79,11 +79,11 @@
   },
   "pulseaudio": {
       "format": "{volume}%  {icon}",
-      "format-bluetooth": "󰂰   {volume}%",
+      "format-bluetooth": "{volume}%   󰂰",
       "nospacing": 1,
       "max-volume": 100,
       "tooltip-format": "{desc} \n Volume: {volume}%",
-      "format-muted": "󰝟   {volume}%",
+      "format-muted": "{volume}%   󰝟",
       "format-icons": {
           "headphone": "",
           "default": ["󰖀","󰕾",""],
