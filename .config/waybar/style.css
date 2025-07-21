@@ -139,20 +139,28 @@ window#waybar.hidden {
 #network {
 }
 
-#clock {
-  margin: 3px 3px;
+#clock, #custom-power {
+  border: 0.5px solid #fbf1c7;
   border-radius: 2px;
   color: #fbf1c7;
+  /*background-color: #3c3836;
+   */
+}
+
+#clock {
+  margin: 3px 3px;
   padding: 2px 5px;
-  background-color: #3c3836;
   padding-right: 5px;
-  border: 0.5px solid #fbf1c7;
 }
 
 #custom-power {
-  background-color: #ebdbb2;
-  color: #282828;
-  padding-right: 13px;
+  padding-left:5px;
+  padding-right:6px;
+  margin-left: 0px;
+  margin-right: 3px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+    
 }
 
 

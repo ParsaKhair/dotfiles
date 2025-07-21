@@ -14,7 +14,8 @@
     "pulseaudio",
     "network",
     "battery",
-    "clock"
+    "clock",
+    "custom/power"
   ],
   "wlr/taskbar": {
     "all-outputs": false,
