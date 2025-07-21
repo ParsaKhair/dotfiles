@@ -61,7 +61,7 @@
   },
   "clock": {
     "tooltip-format": "{calendar}",
-    "format-alt": "{:%a, %d %b %Y}",
+    "format-alt": "{:%A, %m/%d/%Y}",
     "format": "{:%I:%M %p}"
   },
   "network": {
