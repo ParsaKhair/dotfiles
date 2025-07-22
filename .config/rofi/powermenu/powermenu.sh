@@ -11,21 +11,21 @@
 ## style-6   style-7   style-8   style-9   style-10
 
 # Current Theme
-dir="$HOME/.config/rofi/powermenu/"
-theme='style-2'
+dir="$HOME/.config/rofi/themes"
+theme='topright'
 
 # CMDs
 uptime="$(uptime -p | sed -e 's/up //g')"
 host=$(hostname)
 
 # Options
-shutdown=''
-reboot=''
-lock=''
-suspend=''
-logout=''
-yes=''
-no=''
+shutdown='⏻'
+reboot='⟳'
+lock='🔒'
+suspend='✋'
+logout='↩'
+yes='Yes'
+no='No'
 
 # Rofi CMD
 rofi_cmd() {
