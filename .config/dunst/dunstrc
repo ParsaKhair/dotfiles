@@ -1,16 +1,16 @@
 
 [colors]
-  background = "#3c3836"
+  background = "#282828cf"
 
 [global]
   origin = top-center
   origin = top-right
-  offset = 0x0
-  frame_color = "#d5c4a1"
-  corner_radius = 10
+  offset = 3x4
+  frame_color = "#d5c4a1cf"
+  corner_radius = 5
   frame_width = 1
-  font = "Arial 10"
-  foreground = "#d5c4a1"
+  font = "Arial 8"
+  foreground = "#d5c4a1cf"
   height = 200
   mouse_left_click=do_action, close_current
   timeout=3
