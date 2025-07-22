@@ -4,10 +4,14 @@
 volume=$(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}' | tr -d '%')
 muted=$(pactl get-sink-mute @DEFAULT_SINK@ | awk '{print $2}')
 
+if ["$volume" -gt 100]; then
+  pactl set-sink-volume @DEFAULT_SINK@ 100%
+fi
+
 # Choose icon
 if [ "$muted" = "yes" ]; then
   icon="🔇"
-  bar="🔘"
+  bar=""
 else
   if [ "$volume" -lt 30 ]; then
     icon="🔈"
@@ -20,7 +24,7 @@ else
   # Build bar (20 characters)
   filled=$((volume / 5))
   empty=$((20 - filled))
-  bar=$(printf "%${filled}s" | tr 'o' 'x')$(printf "%${empty}s" | tr ' ' ' ')
+  bar=$(printf "%${filled}s" | tr ' ' 'O')$(printf "%${empty}s" | tr ' ' 'o')
 fi
 
 # Send notification
