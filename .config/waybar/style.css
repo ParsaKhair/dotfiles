@@ -163,6 +163,11 @@ window#waybar.hidden {
     
 }
 
+#custom-power:hover, #clock:hover {
+  background-color: #504945;
+  transition: background-color 0.2s ease;
+}
+
 
 tooltip {
   border-radius: 6px;
