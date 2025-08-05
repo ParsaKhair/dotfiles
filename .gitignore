@@ -14,3 +14,4 @@ libreoffice/
 .librewolf/firefox-mpris
 zoom*
 .config/libreoffice/4/user
+.config/dconf/user
