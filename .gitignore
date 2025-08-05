@@ -12,3 +12,5 @@ cc*
 libreoffice/
 .config/libreoffice/
 .librewolf/firefox-mpris
+zoom*
+.config/libreoffice/4/user
