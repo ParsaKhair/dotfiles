@@ -1,14 +1,13 @@
 dir="$HOME/.config/rofi"
 
 # Get BSSID of selected network with rofi
-bssid=$(nmcli -f SSID,BARS,BSSID device wifi list | sed '1d' | awk 'NR==1 {print; next} {if ($1 == "--") $1="Hidden Network"; print}' | rofi -theme $HOME/.config/rofi/themes/wifi.rasi -dmenu -p " " -lines 10 | awk '{print $NF}')
+bssid=$(nmcli -f SECURITY,SSID,BARS,BSSID device wifi list | sed '1d' | awk 'NR==2 {print; next} {if ($2 == "--") $2="Hidden Network"; print}' | awk 'NR1==1 {print; next} {if ($1 == "--") $1="•"; else $1=""; print}' | rofi -theme $HOME/.config/rofi/themes/wifi.rasi -dmenu -p " " -lines 10 | awk '{print $NF}')
 
 # Exit if no selection
 [ -z "$bssid" ] && exit 1
 
 # Save security of given WiFi
 security=$(nmcli -f SECURITY,BSSID device wifi list | grep "$bssid" | awk '{print $1}')
-echo "$security"
 
 # Prompt for pass if required
 if [ "$security" != "--" ]; then
