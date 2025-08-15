@@ -7,7 +7,8 @@ bssid=$(nmcli -f SSID,BARS,BSSID device wifi list | sed '1d' | awk 'NR==1 {print
 [ -z "$bssid" ] && exit 1
 
 # Save security of given WiFi
-security=$(nmcli device wifi list | grep "$bssid" | awk '{print $1}')
+security=$(nmcli -f SECURITY,BSSID device wifi list | grep "$bssid" | awk '{print $1}')
+echo "$security"
 
 # Prompt for pass if required
 if [ "$security" != "--" ]; then
