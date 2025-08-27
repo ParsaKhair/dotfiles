@@ -14,7 +14,7 @@
     "tray"
     "battery",
     "clock",
-    "custom/power",
+    "custom/power"
   ],
   "wlr/taskbar": {
     "all-outputs": false,
