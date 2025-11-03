@@ -80,7 +80,7 @@ window#waybar.hidden {
 #clock,
 #tray {
 
-  border-radius: 122px;
+  border-radius: 6px;
   padding: 0px 6px;
   margin-top: 3px;
   padding-left: 4px;
@@ -91,7 +91,9 @@ window#waybar.hidden {
   color: #fbf1c7;
   background-color: #282828;
   opacity: 0.85;
-
+  /*
+  box-shadow: 0.6px 0.5px 1.9px rgba(0,0,0,0.8);
+    */
 
 }
 
@@ -99,6 +101,7 @@ window#waybar.hidden {
   padding-top: 1px;
   padding-left: 5px;
   padding-right: 5px;
+  border-radius: 7px;
 
 }
  
@@ -165,7 +168,8 @@ window#waybar.hidden {
   background-color: #504945; 
   */
   background-color: #282828;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.5s ease;
+  transition: opacity 0.5s ease;
   opacity: 1;
 }
 
@@ -184,6 +188,7 @@ tooltip label {
 
 #clock  {
   padding-top: 1px;
+  margin-right: 3px;
 }
 
 #pulseaudio {
