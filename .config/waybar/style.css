@@ -9,7 +9,7 @@ Find on github at https://github.com/sameemul-haque/dotfiles
   font-family: JetBrainsMono Nerd Font;
   font-family: "Nimbus Sans", sans-serif;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 13px;
+  font-size: 11px;
   color: #fbf1c7;
 }
 
@@ -17,8 +17,43 @@ window#waybar {
   background-color: #282828;
   transition-property: background-color;
   transition-duration: 0.5s;
+  background:transparent;
   margin:7px;
   padding: 5px;
+}
+
+#workspaces button {
+  all: initial;
+  /* Remove GTK theme values (waybar #1351) */
+  /* Fix weird spacing in materia (waybar #450) */
+  box-shadow: inset 0 -3px transparent;
+  /* Use box-shadow instead of border so the text isn't offset */
+
+  margin-left: 3px;
+  color: #fbf1c7;
+  transition: background-color 0.3s ease;
+  border: 0.5px solid #3c3836;
+
+}
+
+#workspaces button.active {
+  color: #fbf1c7;
+  /*background-color: #504945;*/
+  transition: background-color 0.3s ease;
+  border: 0.5px solid #fbf1c7;
+  opacity: 1;
+}
+
+#workspaces button:hover {
+  box-shadow: inherit;
+  text-shadow: inherit;
+  color: #fbf1c7;
+  background-color: #504945;
+  transition: background-color 0.3s ease;
+}
+
+#workspaces button.urgent {
+  background-color: #cc241d;
 }
 
 #waybar {
@@ -33,42 +68,42 @@ window#waybar.hidden {
 #workspaces {
   background-color: transparent;
 }
+#workspaces button, 
+#memory,
+#custom-power,
+#battery,
+#backlight,
+#wireplumber,
+#network,
+#custom-volume-bar,
+#pulseaudio,
+#clock,
+#tray {
 
-#workspaces button {
-  all: initial;
-  /* Remove GTK theme values (waybar #1351) */
-  min-width: 0;
-  /* Fix weird spacing in materia (waybar #450) */
-  box-shadow: inset 0 -3px transparent;
-  /* Use box-shadow instead of border so the text isn't offset */
-  margin: 3px 3px;
-  border-radius: 2px;
+  border-radius: 122px;
+  padding: 0px 6px;
+  margin-top: 3px;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-top: 0px;
   background-color: #3c3836;
+  color: #181825;
   color: #fbf1c7;
-  /*margin-top: 0px;
-  margin-bottom: 0px;*/
-  padding: 2px 18px;
-  transition: background-color 0.2s ease;
+  background-color: #282828;
+  opacity: 0.85;
+
+
 }
 
-#workspaces button.active {
-  color: #fbf1c7;
-  /*background-color: #504945;*/
-  transition: background-color 0.2s ease;
-  border: 0.5px solid #fbf1c7;
-}
+#workspaces button  {
+  padding-top: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
 
-#workspaces button:hover {
-  box-shadow: inherit;
-  text-shadow: inherit;
-  color: #fbf1c7;
-  background-color: #504945;
-  transition: background-color 0.2s ease;
 }
+ 
 
-#workspaces button.urgent {
-  background-color: #cc241d;
-}
+
 
 #memory,
 #custom-power,
@@ -80,18 +115,13 @@ window#waybar.hidden {
 #pulseaudio,
 #clock,
 #tray {
-  border-radius: 0px;
-  padding: 0px 6px;
-  background-color: #3c3836;
-  color: #181825;
-  color: #fbf1c7;
-  background-color: #282828;
+  padding-top: 0;
+  border: 0.5px solid #fbf1c7;
+  border: 0.5px solid #3c3836;
 }
 
 
-#custom-power {
-  margin-right: 6px;
-}
+
 
 #custom-logo {
   padding-right: 7px;
@@ -101,16 +131,6 @@ window#waybar.hidden {
   border-radius: 8px 0px 0px 8px;
   color: #1793d1;
 }
-
-#pulseaudio {
-}
-
-#memory {
-}
-
-#battery {
-}
-
 #battery.full {
   background-color: #8ec57c;
 }
@@ -139,34 +159,16 @@ window#waybar.hidden {
 #network {
 }
 
-#clock, #custom-power {
-  border: 0.5px solid #fbf1c7;
-  border-radius: 2px;
-  color: #fbf1c7;
-  /*background-color: #3c3836;
-   */
+
+#custom-power:hover, #clock:hover, #pulseaudio:hover, #battery:hover, #workspaces button:hover{
+  /*
+  background-color: #504945; 
+  */
+  background-color: #282828;
+  transition: background-color 0.3s ease;
+  opacity: 1;
 }
 
-#clock {
-  margin: 3px 3px;
-  padding: 2px 5px;
-  padding-right: 5px;
-}
-
-#custom-power {
-  padding-left:5px;
-  padding-right:6px;
-  margin-left: 0px;
-  margin-right: 3px;
-  margin-top: 3px;
-  margin-bottom: 3px;
-    
-}
-
-#custom-power:hover, #clock:hover {
-  background-color: #504945;
-  transition: background-color 0.2s ease;
-}
 
 
 tooltip {
@@ -180,3 +182,10 @@ tooltip label {
   background-color: #282828;
 }
 
+#clock  {
+  padding-top: 1px;
+}
+
+#pulseaudio {
+  padding-right: 6px;
+}

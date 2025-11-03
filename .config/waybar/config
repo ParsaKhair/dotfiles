@@ -11,10 +11,8 @@
   ],
   "modules-right": [
     "pulseaudio",
-    "tray",
     "battery",
     "clock",
-    "custom/power"
   ],
   "wlr/taskbar": {
     "all-outputs": false,
