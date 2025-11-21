@@ -6,7 +6,7 @@
 
 element {
   orientation: horizontal;
-  children: [ element-icon, element-text ];
+  children: [element-text ];
   spacing: 5px;
   border-radius: 5px;
   font-size: 12px;
@@ -28,7 +28,7 @@ configuration {
     terminal: "alacritty";
     location: 3;
     //anchor: northeast;
-    font: "Arial 10";
+    font: "Arial 8";
     xoffset: 200;
     hover-select: true;
 /*	location: 0;*/

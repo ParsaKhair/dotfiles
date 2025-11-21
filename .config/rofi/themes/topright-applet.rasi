@@ -1,21 +1,21 @@
 @theme "gruvbox-dark-soft"
 
 * {
-  font-size: 12px;
+  font-size: 8px;
 }
 
 element {
   orientation: horizontal;
-  children: [ element-icon, element-text ];
+  children: [element-text ];
   spacing: 5px;
   border-radius: 5px;
-  font-size: 12px;
+  font-size: 9px;
 }
 
 #window {
   border-radius: 10px;
   height: 30%;
-  width: 20%;
+  width: 15%;
 }
 
 configuration {
@@ -24,7 +24,7 @@ configuration {
     terminal: "alacritty";
     location: 3;
     anchor: northeast;
-    font: "Arial 12";
+    font: "Arial 8";
     xoffset: 1200;
     hover-select: true;
 /*	location: 0;*/

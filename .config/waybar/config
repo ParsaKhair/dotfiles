@@ -10,9 +10,11 @@
   "modules-center": [
   ],
   "modules-right": [
+    "tray",
+    "network",
     "pulseaudio",
     "battery",
-    "clock",
+    "clock"
   ],
   "wlr/taskbar": {
     "all-outputs": false,

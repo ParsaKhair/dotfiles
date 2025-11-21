@@ -160,10 +160,11 @@ window#waybar.hidden {
 }
 
 #network {
+  padding-right:7px;
 }
 
 
-#custom-power:hover, #clock:hover, #pulseaudio:hover, #battery:hover, #workspaces button:hover{
+#custom-power:hover, #clock:hover, #pulseaudio:hover, #battery:hover, #workspaces button:hover, #network:hover{
   /*
   background-color: #504945; 
   */
