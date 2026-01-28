@@ -8,6 +8,7 @@
     "hyprland/workspaces"
   ],
   "modules-center": [
+    "custom/quote"
   ],
   "modules-right": [
     "tray",
@@ -149,5 +150,13 @@
         "format": "󰤆",
         "tooltip": false,
         "on-click": "~/.config/rofi/powermenu/powermenu.sh &"
-    }
+    },
+    "custom/quote": {
+        "exec": "~/.config/waybar/scripts/random_quote.sh",
+        "interval": 30,
+        "return-type": "text",
+        "format": "{}",
+        "tooltip": true
+
+  }
 }

@@ -78,7 +78,8 @@ window#waybar.hidden {
 #custom-volume-bar,
 #pulseaudio,
 #clock,
-#tray {
+#tray, 
+#custom-quote {
 
   border-radius: 6px;
   padding: 0px 6px;
@@ -117,7 +118,8 @@ window#waybar.hidden {
 #custom-volume-bar,
 #pulseaudio,
 #clock,
-#tray {
+#tray,
+#custom-quote {
   padding-top: 0;
   border: 0.5px solid #fbf1c7;
   border: 0.5px solid #3c3836;
@@ -164,7 +166,7 @@ window#waybar.hidden {
 }
 
 
-#custom-power:hover, #clock:hover, #pulseaudio:hover, #battery:hover, #workspaces button:hover, #network:hover{
+#custom-power:hover, #clock:hover, #pulseaudio:hover, #battery:hover, #workspaces button:hover, #network:hover, #custom-quote:hover{
   /*
   background-color: #504945; 
   */
