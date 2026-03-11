@@ -54,3 +54,6 @@ clear
 
 # Sets ranger for download locations
 export XDG_OPEN_CMD="ranger --choosefile"
+
+export PATH="$PATH:/usr/local/src/stringtie/stringtie"
+export PATH="$PATH:/usr/local/src/gffread/gffread"
