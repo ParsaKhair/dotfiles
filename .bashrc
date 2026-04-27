@@ -38,6 +38,7 @@ alias spotify='nohup flatpak run --socket=wayland com.spotify.Client --enable-fe
 PS1='\[\e[1;35m\]\u\[\e[36;1m\] \w \[\e[0m\]\$ \[\e[0m\]'
 
 export EDITOR='nvim'
+export VISUAL='nvim'
 
 ######################
 ## Random wallpaper ##
