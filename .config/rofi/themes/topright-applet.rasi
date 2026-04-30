@@ -10,12 +10,14 @@ element {
   spacing: 5px;
   border-radius: 5px;
   font-size: 9px;
+
 }
 
 #window {
   border-radius: 10px;
   height: 30%;
   width: 15%;
+  border: 0px;
 }
 
 configuration {

@@ -17,6 +17,7 @@ element {
   border-radius: 10px;
   height: 30%;
   width: 20%;
+  border: 0px;
 }
 
 mainbox {
