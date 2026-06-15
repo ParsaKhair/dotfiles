@@ -42,6 +42,10 @@ window#waybar {
   transition: background-color 0.3s ease;
   border: 0.5px solid #fbf1c7;
   opacity: 1;
+  /*
+  padding-left: 8px;
+  padding-right: 8px;
+  */
 
   /* experimenta */
 
@@ -108,7 +112,9 @@ window#waybar.hidden {
   padding-left: 5px;
   padding-right: 5px;
   border-radius: 7px;
+  /*border-radius: 12px;*/
   opacity: 0.85;
+
 
 }
  
