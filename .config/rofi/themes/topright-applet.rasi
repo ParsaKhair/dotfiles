@@ -10,12 +10,14 @@ element {
   spacing: 5px;
   border-radius: 5px;
   font-size: 9px;
+
 }
 
 #window {
   border-radius: 10px;
   height: 30%;
   width: 15%;
+  border: 0px;
 }
 
 configuration {
@@ -165,6 +167,8 @@ configuration {
 /*	ml-row-down: "ScrollDown";*/
 /*	me-select-entry: "MousePrimary";*/
 /*	me-accept-entry: "MouseDPrimary";*/
+    me-select-entry: "";
+    me-accept-entry: "MouseDPrimary";
 /*	me-accept-custom: "Control+MouseDPrimary";*/
   timeout {
       action: "kb-cancel";

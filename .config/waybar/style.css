@@ -42,6 +42,13 @@ window#waybar {
   transition: background-color 0.3s ease;
   border: 0.5px solid #fbf1c7;
   opacity: 1;
+  /*
+  padding-left: 8px;
+  padding-right: 8px;
+  */
+
+  /* experimenta */
+
 }
 
 #workspaces button:hover {
@@ -78,7 +85,8 @@ window#waybar.hidden {
 #custom-volume-bar,
 #pulseaudio,
 #clock,
-#tray {
+#tray, 
+#custom-quote {
 
   border-radius: 6px;
   padding: 0px 6px;
@@ -90,18 +98,23 @@ window#waybar.hidden {
   color: #181825;
   color: #fbf1c7;
   background-color: #282828;
-  opacity: 0.85;
+  opacity: 1;
   /*
   box-shadow: 0.6px 0.5px 1.9px rgba(0,0,0,0.8);
     */
 
 }
 
+
+
 #workspaces button  {
   padding-top: 1px;
   padding-left: 5px;
   padding-right: 5px;
   border-radius: 7px;
+  /*border-radius: 12px;*/
+  opacity: 0.85;
+
 
 }
  
@@ -117,7 +130,8 @@ window#waybar.hidden {
 #custom-volume-bar,
 #pulseaudio,
 #clock,
-#tray {
+#tray,
+#custom-quote {
   padding-top: 0;
   border: 0.5px solid #fbf1c7;
   border: 0.5px solid #3c3836;
@@ -164,7 +178,7 @@ window#waybar.hidden {
 }
 
 
-#custom-power:hover, #clock:hover, #pulseaudio:hover, #battery:hover, #workspaces button:hover, #network:hover{
+#custom-power:hover, #clock:hover, #pulseaudio:hover, #battery:hover, #workspaces button:hover, #network:hover, #custom-quote:hover{
   /*
   background-color: #504945; 
   */

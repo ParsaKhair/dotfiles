@@ -16,3 +16,7 @@ zoom*
 .config/libreoffice/4/user
 .config/dconf/user
 .config/libreoffice/4/user
+.config/rstudio
+.config/chromium
+.config/openttd
+.config/obs-studio
