@@ -169,6 +169,8 @@ configuration {
 /*	ml-row-up: "ScrollUp";*/
 /*	ml-row-down: "ScrollDown";*/
 /*	me-select-entry: "MousePrimary";*/
+    me-select-entry: "";
+    me-accept-entry: "MouseDPrimary";
 /*	me-accept-entry: "MouseDPrimary";*/
 /*	me-accept-custom: "Control+MouseDPrimary";*/
   timeout {
