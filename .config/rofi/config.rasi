@@ -17,6 +17,9 @@ configuration {
     modes: "window,drun,run,ssh,filebrowser,recursivebrowser";
     terminal: "alacritty";
     font: "Arial 12";
+    recursivebrowser  {
+        command: "alacritty -e nvim";
+      }
 /*	location: 0;*/
 /*	yoffset: 0;*/
 /*	xoffset: 0;*/
