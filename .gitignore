@@ -20,3 +20,10 @@ zoom*
 .config/chromium
 .config/openttd
 .config/obs-studio
+CLAUDE.md
+# Local assistant instructions, memories, and personal text stay out of Git.
+.agents/
+.codex/
+AGENTS.md
+MEMORY.md
+.config/waybar/quotes.txt

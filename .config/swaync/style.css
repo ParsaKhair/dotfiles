@@ -1,0 +1,179 @@
+/* Frosted notification cards and a compact Notification Center. */
+@define-color glass-bg rgba(27, 34, 49, 0.72);
+@define-color card-bg rgba(55, 65, 83, 0.72);
+@define-color card-hover rgba(75, 88, 110, 0.84);
+@define-color glass-border rgba(255, 255, 255, 0.22);
+@define-color glass-text #f4f7ff;
+@define-color muted-text #b9c4d8;
+@define-color accent #9dc4ff;
+
+* {
+  font-family: "Cantarell", sans-serif;
+  color: @glass-text;
+}
+
+.blank-window,
+.floating-notifications {
+  background: transparent;
+}
+
+.notification-row {
+  outline: none;
+  background: transparent;
+}
+
+.notification-row:focus,
+.notification-row:hover {
+  background: transparent;
+}
+
+.notification-row .notification-background {
+  padding: 5px 8px;
+}
+
+.notification-row .notification-background .notification {
+  background: @card-bg;
+  border: 1px solid @glass-border;
+  border-radius: 18px;
+  box-shadow: 0 7px 22px rgba(3, 8, 18, 0.30);
+}
+
+.notification-row .notification-background .notification.critical {
+  border-color: rgba(255, 180, 185, 0.68);
+}
+
+.notification-row .notification-background .notification .notification-default-action {
+  border-radius: 18px;
+  padding: 9px;
+}
+
+.notification-row .notification-background .notification .notification-action:hover,
+.notification-row .notification-background .notification .notification-default-action:hover {
+  background: @card-hover;
+}
+
+.notification-row .notification-background .close-button {
+  background: rgba(255, 255, 255, 0.13);
+  border-radius: 99px;
+  min-width: 22px;
+  min-height: 22px;
+}
+
+.notification-row .notification-background .close-button:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.notification-row .notification-background .notification .notification-default-action .notification-content .text-box .summary {
+  color: @glass-text;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.notification-row .notification-background .notification .notification-default-action .notification-content .text-box .body,
+.notification-row .notification-background .notification .notification-default-action .notification-content .text-box .time {
+  color: @muted-text;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.notification-row .notification-background .notification .notification-default-action .notification-content progressbar trough {
+  background: rgba(255, 255, 255, 0.17);
+  border-radius: 99px;
+  min-height: 5px;
+}
+
+.notification-row .notification-background .notification .notification-default-action .notification-content progressbar progress {
+  background: @accent;
+  border-radius: 99px;
+  min-height: 5px;
+}
+
+.control-center {
+  background: @glass-bg;
+  color: @glass-text;
+  border: 1px solid @glass-border;
+  border-radius: 24px;
+  box-shadow: 0 14px 32px rgba(3, 8, 18, 0.34);
+}
+
+.control-center .control-center-list {
+  background: transparent;
+}
+
+.control-center .control-center-list-placeholder {
+  color: @muted-text;
+}
+
+.widget-title {
+  margin: 16px 16px 8px;
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.widget-title > button {
+  color: @accent;
+  background: rgba(255, 255, 255, 0.11);
+  border: 1px solid @glass-border;
+  border-radius: 11px;
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
+.widget-title > button:hover {
+  background: rgba(255, 255, 255, 0.20);
+}
+
+.widget-dnd {
+  margin: 4px 16px 10px;
+  font-size: 13px;
+}
+
+.widget-dnd > switch {
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid @glass-border;
+  border-radius: 99px;
+}
+
+.widget-dnd > switch:checked {
+  background: #79aef5;
+}
+
+.widget-dnd > switch slider {
+  background: #f4f7ff;
+  border-radius: 99px;
+}
+
+.widget-mpris .widget-mpris-player,
+.widget-volume {
+  background: @card-bg;
+  border: 1px solid @glass-border;
+  border-radius: 17px;
+  box-shadow: none;
+  margin: 6px 16px;
+  padding: 12px;
+}
+
+.widget-mpris .widget-mpris-player .widget-mpris-album-art {
+  border-radius: 14px;
+}
+
+.widget-volume scale trough {
+  background: rgba(255, 255, 255, 0.17);
+  border-radius: 99px;
+  min-height: 5px;
+}
+
+.widget-volume scale highlight {
+  background: @accent;
+  border-radius: 99px;
+}
+
+.widget-volume scale slider {
+  background: #f4f7ff;
+  border-radius: 99px;
+}
+
+.notification-group .notification-group-headers,
+.notification-group .notification-group-buttons {
+  color: @muted-text;
+}

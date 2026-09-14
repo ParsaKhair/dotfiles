@@ -1,31 +1,19 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-# Get volume and mute status
-volume=$(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}' | tr -d '%')
+# Replace the previous volume toast and show SwayNC's native progress bar.
+volume=$(pactl get-sink-volume @DEFAULT_SINK@ | grep -oE '[0-9]+%' | head -n 1 | tr -d '%')
 muted=$(pactl get-sink-mute @DEFAULT_SINK@ | awk '{print $2}')
+[[ $volume =~ ^[0-9]+$ ]] || exit 1
 
-if ["$volume" -gt 100]; then
-  pactl set-sink-volume @DEFAULT_SINK@ 100%
-fi
-
-# Choose icon
-if [ "$muted" = "yes" ]; then
-  icon="🔇"
-  bar=""
+if [[ $muted == yes ]]; then
+  label="Muted"
+  progress=0
 else
-  if [ "$volume" -lt 30 ]; then
-    icon="🔈"
-  elif [ "$volume" -lt 70 ]; then
-    icon="🔉"
-  else
-    icon="🔊"
-  fi
-
-  # Build bar (20 characters)
-  filled=$((volume / 5))
-  empty=$((20 - filled))
-  bar=$(printf "%${filled}s" | tr ' ' 'O')$(printf "%${empty}s" | tr ' ' 'o')
+  label="${volume}%"
+  progress=$volume
+  (( progress > 100 )) && progress=100
 fi
 
-# Send notification
-dunstify -h string:x-dunst-stack-tag:volume_notification --appname="volume" -r 9993 -u low "Volume: $volume%" "$bar"
+notify-send --app-name="Volume" --urgency=low --expire-time=1800 \
+  --hint=string:x-canonical-private-synchronous:volume \
+  --hint="int:value:$progress" "Volume" "$label"

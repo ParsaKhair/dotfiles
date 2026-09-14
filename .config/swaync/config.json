@@ -1,0 +1,41 @@
+{
+  "positionX": "right",
+  "positionY": "top",
+  "layer": "overlay",
+  "control-center-layer": "overlay",
+  "layer-shell": true,
+  "control-center-margin-top": 8,
+  "control-center-margin-right": 10,
+  "control-center-width": 390,
+  "control-center-height": 650,
+  "notification-window-width": 390,
+  "fit-to-screen": true,
+  "relative-timestamps": true,
+  "transition-time": 220,
+  "timeout": 6,
+  "timeout-low": 3,
+  "timeout-critical": 0,
+  "keyboard-shortcuts": true,
+  "image-visibility": "when-available",
+  "widgets": [
+    "title",
+    "dnd",
+    "mpris",
+    "volume",
+    "notifications"
+  ],
+  "widget-config": {
+    "title": {
+      "text": "Notification Center",
+      "clear-all-button": true,
+      "button-text": "Clear All"
+    },
+    "dnd": {
+      "text": "Do Not Disturb"
+    },
+    "mpris": {
+      "image-size": 72,
+      "image-radius": 14
+    }
+  }
+}
