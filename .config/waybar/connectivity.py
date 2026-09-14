@@ -164,7 +164,7 @@ class ConnectivityWindow(Gtk.ApplicationWindow):
         GtkLayerShell.set_layer(self, GtkLayerShell.Layer.OVERLAY)
         GtkLayerShell.set_anchor(self, GtkLayerShell.Edge.TOP, True)
         GtkLayerShell.set_anchor(self, GtkLayerShell.Edge.RIGHT, True)
-        GtkLayerShell.set_margin(self, GtkLayerShell.Edge.TOP, 56)
+        GtkLayerShell.set_margin(self, GtkLayerShell.Edge.TOP, 40)
         GtkLayerShell.set_margin(self, GtkLayerShell.Edge.RIGHT, 10)
         GtkLayerShell.set_exclusive_zone(self, 0)
         GtkLayerShell.set_keyboard_mode(self, GtkLayerShell.KeyboardMode.ON_DEMAND)

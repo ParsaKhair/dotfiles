@@ -1,11 +1,11 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 40,
-  "margin-top": 8,
+  "height": 30,
+  "margin-top": 4,
   "margin-left": 10,
   "margin-right": 10,
-  "spacing": 4,
+  "spacing": 2,
   "fixed-center": true,
   "modules-left": [
     "custom/launcher",
@@ -46,12 +46,12 @@
   },
   "hyprland/window": {
     "format": "{class}",
-    "max-length": 36,
+    "max-length": 28,
     "separate-outputs": true
   },
   "tray": {
-    "spacing": 8,
-    "icon-size": 16
+    "spacing": 5,
+    "icon-size": 14
   },
   "network": {
     "format-wifi": "{icon}",

@@ -1,13 +1,13 @@
-@define-color panel rgba(27, 34, 49, 0.80);
-@define-color card rgba(255, 255, 255, 0.08);
-@define-color hover rgba(255, 255, 255, 0.15);
-@define-color border rgba(255, 255, 255, 0.21);
-@define-color text #f4f7ff;
-@define-color secondary #bac7da;
-@define-color blue #a7caff;
+@define-color panel rgba(40, 40, 40, 0.88);
+@define-color card rgba(60, 56, 54, 0.90);
+@define-color hover rgba(80, 73, 69, 0.94);
+@define-color border #504945;
+@define-color text #ebdbb2;
+@define-color secondary #bdae93;
+@define-color accent #d5c4a1;
 
 * {
-  font-family: "Cantarell", sans-serif;
+  font-family: "Nimbus Sans", sans-serif;
   color: @text;
   text-shadow: none;
 }
@@ -15,8 +15,8 @@
 .panel-content {
   background: @panel;
   border: 1px solid @border;
-  border-radius: 24px;
-  box-shadow: 0 15px 34px rgba(3, 8, 18, 0.34);
+  border-radius: 5px;
+  box-shadow: 0 8px 22px rgba(29, 32, 33, 0.34);
   padding: 11px 12px 12px;
 }
 
@@ -41,34 +41,34 @@ button:hover {
 }
 
 button:focus {
-  box-shadow: inset 0 0 0 1px @blue;
+  box-shadow: inset 0 0 0 1px @accent;
 }
 
 button.icon-button {
   min-width: 27px;
   min-height: 27px;
   padding: 1px;
-  border-radius: 10px;
+  border-radius: 5px;
   font-size: 21px;
 }
 
 .segment {
-  background: rgba(255, 255, 255, 0.09);
-  border-radius: 12px;
+  background: @card;
+  border-radius: 5px;
   padding: 3px;
   margin: 0 1px 11px;
 }
 
 button.segment-button {
   min-height: 29px;
-  border-radius: 9px;
+  border-radius: 5px;
   font-size: 12px;
   font-weight: 600;
   color: @secondary;
 }
 
 button.segment-button.selected {
-  background: rgba(255, 255, 255, 0.19);
+  background: @hover;
   color: @text;
 }
 
@@ -82,9 +82,9 @@ button.segment-button.selected {
 }
 
 button.radio-toggle {
-  background: rgba(255, 255, 255, 0.17);
+  background: @card;
   border: 1px solid @border;
-  border-radius: 99px;
+  border-radius: 5px;
   background-image: none;
   min-width: 49px;
   min-height: 24px;
@@ -92,12 +92,12 @@ button.radio-toggle {
 }
 
 button.radio-toggle:checked {
-  background: #78adf3;
+  background: #98971a;
 }
 
 button.radio-toggle .toggle-knob {
-  background: #f4f7ff;
-  border-radius: 99px;
+  background: #ebdbb2;
+  border-radius: 5px;
   min-width: 21px;
   min-height: 21px;
   margin-left: 0;
@@ -130,14 +130,14 @@ viewport,
 .item {
   min-height: 47px;
   background: @card;
-  border-radius: 13px;
+  border-radius: 5px;
   padding: 3px 7px;
 }
 
 button.item-main {
   min-height: 42px;
   padding: 0 5px;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 button.item-main:hover {
@@ -145,7 +145,7 @@ button.item-main:hover {
 }
 
 .item-icon {
-  color: @blue;
+  color: @accent;
   min-width: 24px;
 }
 
@@ -160,7 +160,7 @@ button.item-main:hover {
 }
 
 .item-badge {
-  color: @blue;
+  color: @accent;
   font-size: 11px;
   font-weight: 600;
   margin-right: 8px;
@@ -173,10 +173,10 @@ button.item-main:hover {
 }
 
 button.text-button {
-  color: @blue;
+  color: @accent;
   font-size: 11px;
   font-weight: 600;
-  border-radius: 9px;
+  border-radius: 5px;
   padding: 5px 9px;
   margin: 5px 4px;
 }
@@ -189,20 +189,20 @@ button.text-button {
   color: @secondary;
   font-size: 11px;
   background: @card;
-  border-radius: 10px;
+  border-radius: 5px;
   padding: 8px 10px;
   margin-top: 8px;
 }
 
 dialog {
-  background: #29344b;
+  background: #32302f;
   color: @text;
 }
 
 entry,
 combobox button {
-  background: rgba(255, 255, 255, 0.10);
+  background: #3c3836;
   border: 1px solid @border;
-  border-radius: 9px;
+  border-radius: 5px;
   padding: 7px;
 }

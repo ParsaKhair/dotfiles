@@ -24,6 +24,8 @@ CLAUDE.md
 # Local assistant instructions, memories, and personal text stay out of Git.
 .agents/
 .codex/
+.claude/
+.config/Claude/
 AGENTS.md
 MEMORY.md
 .config/waybar/quotes.txt
