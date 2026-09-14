@@ -1,0 +1,208 @@
+@define-color panel rgba(27, 34, 49, 0.80);
+@define-color card rgba(255, 255, 255, 0.08);
+@define-color hover rgba(255, 255, 255, 0.15);
+@define-color border rgba(255, 255, 255, 0.21);
+@define-color text #f4f7ff;
+@define-color secondary #bac7da;
+@define-color blue #a7caff;
+
+* {
+  font-family: "Cantarell", sans-serif;
+  color: @text;
+  text-shadow: none;
+}
+
+.panel-content {
+  background: @panel;
+  border: 1px solid @border;
+  border-radius: 24px;
+  box-shadow: 0 15px 34px rgba(3, 8, 18, 0.34);
+  padding: 11px 12px 12px;
+}
+
+.panel-header {
+  padding: 2px 3px 11px;
+}
+
+.panel-title {
+  font-size: 19px;
+  font-weight: 700;
+}
+
+button {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  outline: none;
+}
+
+button:hover {
+  background: @hover;
+}
+
+button:focus {
+  box-shadow: inset 0 0 0 1px @blue;
+}
+
+button.icon-button {
+  min-width: 27px;
+  min-height: 27px;
+  padding: 1px;
+  border-radius: 10px;
+  font-size: 21px;
+}
+
+.segment {
+  background: rgba(255, 255, 255, 0.09);
+  border-radius: 12px;
+  padding: 3px;
+  margin: 0 1px 11px;
+}
+
+button.segment-button {
+  min-height: 29px;
+  border-radius: 9px;
+  font-size: 12px;
+  font-weight: 600;
+  color: @secondary;
+}
+
+button.segment-button.selected {
+  background: rgba(255, 255, 255, 0.19);
+  color: @text;
+}
+
+.page-controls {
+  padding: 1px 6px 9px;
+}
+
+.section-title {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+button.radio-toggle {
+  background: rgba(255, 255, 255, 0.17);
+  border: 1px solid @border;
+  border-radius: 99px;
+  background-image: none;
+  min-width: 49px;
+  min-height: 24px;
+  padding: 2px;
+}
+
+button.radio-toggle:checked {
+  background: #78adf3;
+}
+
+button.radio-toggle .toggle-knob {
+  background: #f4f7ff;
+  border-radius: 99px;
+  min-width: 21px;
+  min-height: 21px;
+  margin-left: 0;
+  margin-right: 23px;
+}
+
+button.radio-toggle:checked .toggle-knob {
+  margin-left: 23px;
+  margin-right: 0;
+}
+
+scrolledwindow,
+viewport,
+.rows {
+  background: transparent;
+}
+
+.rows {
+  padding-bottom: 3px;
+}
+
+.list-section {
+  color: @secondary;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 12px 8px 5px;
+}
+
+.item {
+  min-height: 47px;
+  background: @card;
+  border-radius: 13px;
+  padding: 3px 7px;
+}
+
+button.item-main {
+  min-height: 42px;
+  padding: 0 5px;
+  border-radius: 10px;
+}
+
+button.item-main:hover {
+  background: @hover;
+}
+
+.item-icon {
+  color: @blue;
+  min-width: 24px;
+}
+
+.item-title {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.item-subtitle {
+  color: @secondary;
+  font-size: 11px;
+}
+
+.item-badge {
+  color: @blue;
+  font-size: 11px;
+  font-weight: 600;
+  margin-right: 8px;
+}
+
+.empty-message {
+  color: @secondary;
+  font-size: 12px;
+  margin: 18px 10px;
+}
+
+button.text-button {
+  color: @blue;
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: 9px;
+  padding: 5px 9px;
+  margin: 5px 4px;
+}
+
+.footer {
+  margin-top: 9px;
+}
+
+.status-message {
+  color: @secondary;
+  font-size: 11px;
+  background: @card;
+  border-radius: 10px;
+  padding: 8px 10px;
+  margin-top: 8px;
+}
+
+dialog {
+  background: #29344b;
+  color: @text;
+}
+
+entry,
+combobox button {
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid @border;
+  border-radius: 9px;
+  padding: 7px;
+}
