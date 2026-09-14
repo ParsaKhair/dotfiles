@@ -151,8 +151,8 @@ class ConnectivityWindow(Gtk.ApplicationWindow):
     def __init__(self, app):
         super().__init__(application=app)
         self.set_title("Connectivity")
-        self.set_default_size(390, 530)
-        self.set_size_request(350, 520)
+        self.set_default_size(320, 320)
+        self.set_size_request(300, 300)
         self.set_decorated(False)
         self.get_style_context().add_class("connectivity-panel")
         self.set_app_paintable(True)
@@ -164,8 +164,8 @@ class ConnectivityWindow(Gtk.ApplicationWindow):
         GtkLayerShell.set_layer(self, GtkLayerShell.Layer.OVERLAY)
         GtkLayerShell.set_anchor(self, GtkLayerShell.Edge.TOP, True)
         GtkLayerShell.set_anchor(self, GtkLayerShell.Edge.RIGHT, True)
-        GtkLayerShell.set_margin(self, GtkLayerShell.Edge.TOP, 40)
-        GtkLayerShell.set_margin(self, GtkLayerShell.Edge.RIGHT, 10)
+        GtkLayerShell.set_margin(self, GtkLayerShell.Edge.TOP, 4)
+        GtkLayerShell.set_margin(self, GtkLayerShell.Edge.RIGHT, 4)
         GtkLayerShell.set_exclusive_zone(self, 0)
         GtkLayerShell.set_keyboard_mode(self, GtkLayerShell.KeyboardMode.ON_DEMAND)
 
@@ -290,7 +290,7 @@ class ConnectivityWindow(Gtk.ApplicationWindow):
         controls = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=8)
         controls.get_style_context().add_class("page-controls")
         controls.pack_start(make_label(name, "section-title"), True, True, 0)
-        refresh = Gtk.Button.new_from_icon_name("view-refresh-symbolic", Gtk.IconSize.BUTTON)
+        refresh = Gtk.Button(label="↻")
         refresh.get_style_context().add_class("icon-button")
         refresh.set_tooltip_text("Scan again")
         refresh.connect("clicked", lambda *_: scan())
@@ -308,8 +308,8 @@ class ConnectivityWindow(Gtk.ApplicationWindow):
 
         scroll = Gtk.ScrolledWindow()
         scroll.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC)
-        scroll.set_min_content_height(330)
-        rows = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=4)
+        scroll.set_min_content_height(150)
+        rows = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=3)
         rows.get_style_context().add_class("rows")
         scroll.add(rows)
         page.pack_start(scroll, True, True, 0)
@@ -368,13 +368,16 @@ class ConnectivityWindow(Gtk.ApplicationWindow):
         return button
 
     def item(self, box, icon, title, subtitle, callback=None, badge=None, trailing=None):
-        row = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=8)
+        row = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=6)
         row.get_style_context().add_class("item")
-        body = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=11)
+        body = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=8)
+        body.set_valign(Gtk.Align.CENTER)
         image = Gtk.Image.new_from_icon_name(icon, Gtk.IconSize.BUTTON)
         image.get_style_context().add_class("item-icon")
+        image.set_valign(Gtk.Align.CENTER)
         body.pack_start(image, False, False, 0)
-        texts = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=2)
+        texts = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=0)
+        texts.set_valign(Gtk.Align.CENTER)
         texts.pack_start(make_label(title, "item-title"), False, False, 0)
         texts.pack_start(make_label(subtitle, "item-subtitle"), False, False, 0)
         body.pack_start(texts, True, True, 0)
@@ -387,7 +390,9 @@ class ConnectivityWindow(Gtk.ApplicationWindow):
         else:
             row.pack_start(body, True, True, 0)
         if badge:
-            row.pack_end(make_label(badge, "item-badge", 1), False, False, 0)
+            badge_label = make_label(badge, "item-badge", 1)
+            badge_label.set_valign(Gtk.Align.CENTER)
+            row.pack_end(badge_label, False, False, 0)
         if trailing:
             trailing.get_style_context().add_class("row-action")
             row.pack_end(trailing, False, False, 0)

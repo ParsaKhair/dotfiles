@@ -9,6 +9,7 @@
 
 * {
   font-family: "Nimbus Sans", sans-serif;
+  font-size: 11px;
   color: @glass-text;
 }
 
@@ -28,7 +29,7 @@
 }
 
 .notification-row .notification-background {
-  padding: 5px 8px;
+  padding: 3px 4px;
 }
 
 .notification-row .notification-background .notification {
@@ -44,7 +45,7 @@
 
 .notification-row .notification-background .notification .notification-default-action {
   border-radius: 5px;
-  padding: 9px;
+  padding: 6px;
 }
 
 .notification-row .notification-background .notification .notification-action:hover,
@@ -55,8 +56,8 @@
 .notification-row .notification-background .close-button {
   background: @card-hover;
   border-radius: 5px;
-  min-width: 22px;
-  min-height: 22px;
+  min-width: 18px;
+  min-height: 18px;
 }
 
 .notification-row .notification-background .close-button:hover {
@@ -65,27 +66,27 @@
 
 .notification-row .notification-background .notification .notification-default-action .notification-content .text-box .summary {
   color: @glass-text;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 700;
 }
 
 .notification-row .notification-background .notification .notification-default-action .notification-content .text-box .body,
 .notification-row .notification-background .notification .notification-default-action .notification-content .text-box .time {
   color: @muted-text;
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 400;
 }
 
 .notification-row .notification-background .notification .notification-default-action .notification-content progressbar trough {
   background: #504945;
   border-radius: 5px;
-  min-height: 5px;
+  min-height: 4px;
 }
 
 .notification-row .notification-background .notification .notification-default-action .notification-content progressbar progress {
   background: @accent;
   border-radius: 5px;
-  min-height: 5px;
+  min-height: 4px;
 }
 
 .control-center {
@@ -105,8 +106,8 @@
 }
 
 .widget-title {
-  margin: 16px 16px 8px;
-  font-size: 18px;
+  margin: 10px 10px 4px;
+  font-size: 15px;
   font-weight: 700;
 }
 
@@ -115,8 +116,8 @@
   background: @card-bg;
   border: 1px solid @glass-border;
   border-radius: 5px;
-  padding: 4px 8px;
-  font-size: 12px;
+  padding: 3px 6px;
+  font-size: 10px;
 }
 
 .widget-title > button:hover {
@@ -124,8 +125,8 @@
 }
 
 .widget-dnd {
-  margin: 4px 16px 10px;
-  font-size: 13px;
+  margin: 2px 10px 6px;
+  font-size: 11px;
 }
 
 .widget-dnd > switch {
@@ -149,8 +150,8 @@
   border: 1px solid @glass-border;
   border-radius: 5px;
   box-shadow: none;
-  margin: 6px 16px;
-  padding: 12px;
+  margin: 4px 10px;
+  padding: 7px;
 }
 
 .widget-mpris .widget-mpris-player .widget-mpris-album-art {
@@ -160,7 +161,7 @@
 .widget-volume scale trough {
   background: #504945;
   border-radius: 5px;
-  min-height: 5px;
+  min-height: 4px;
 }
 
 .widget-volume scale highlight {

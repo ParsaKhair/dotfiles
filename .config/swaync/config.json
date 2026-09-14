@@ -4,12 +4,12 @@
   "layer": "overlay",
   "control-center-layer": "overlay",
   "layer-shell": true,
-  "control-center-margin-top": 40,
-  "control-center-margin-right": 10,
-  "control-center-width": 390,
-  "control-center-height": 650,
-  "notification-window-width": 390,
-  "fit-to-screen": true,
+  "control-center-margin-top": 4,
+  "control-center-margin-right": 4,
+  "control-center-width": 320,
+  "control-center-height": 280,
+  "notification-window-width": 320,
+  "fit-to-screen": false,
   "relative-timestamps": true,
   "transition-time": 220,
   "timeout": 6,
@@ -34,8 +34,8 @@
       "text": "Do Not Disturb"
     },
     "mpris": {
-      "image-size": 72,
-      "image-radius": 14
+      "image-size": 56,
+      "image-radius": 5
     }
   }
 }

@@ -1,11 +1,11 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 30,
+  "height": 24,
   "margin-top": 4,
-  "margin-left": 10,
-  "margin-right": 10,
-  "spacing": 2,
+  "margin-left": 4,
+  "margin-right": 4,
+  "spacing": 1,
   "fixed-center": true,
   "modules-left": [
     "custom/launcher",
@@ -50,8 +50,8 @@
     "separate-outputs": true
   },
   "tray": {
-    "spacing": 5,
-    "icon-size": 14
+    "spacing": 4,
+    "icon-size": 13
   },
   "network": {
     "format-wifi": "{icon}",
