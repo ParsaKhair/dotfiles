@@ -1,211 +1,159 @@
-/* 
-Modified version of style.css by sameemul-haque
-Find on github at https://github.com/sameemul-haque/dotfiles
- */
+/* Gruvbox menu bar; Hyprland supplies the background blur. */
 * {
   border: none;
-  border-radius: 0;
-  min-height: 0px;
-  font-family: JetBrainsMono Nerd Font;
-  font-family: "Nimbus Sans", sans-serif;
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 0;
+  font-family: "Nimbus Sans", "JetBrainsMono Nerd Font", sans-serif;
   font-size: 11px;
-  color: #fbf1c7;
+  color: #ebdbb2;
+  text-shadow: none;
 }
 
 window#waybar {
-  background-color: #282828;
-  transition-property: background-color;
-  transition-duration: 0.5s;
-  background:transparent;
-  margin:7px;
-  padding: 5px;
-}
-
-#workspaces button {
-  all: initial;
-  /* Remove GTK theme values (waybar #1351) */
-  /* Fix weird spacing in materia (waybar #450) */
-  box-shadow: inset 0 -3px transparent;
-  /* Use box-shadow instead of border so the text isn't offset */
-
-  margin-left: 3px;
-  color: #fbf1c7;
-  transition: background-color 0.3s ease;
-  border: 0.5px solid #3c3836;
-
-}
-
-#workspaces button.active {
-  color: #fbf1c7;
-  /*background-color: #504945;*/
-  transition: background-color 0.3s ease;
-  border: 0.5px solid #fbf1c7;
-  opacity: 1;
-  /*
-  padding-left: 8px;
-  padding-right: 8px;
-  */
-
-  /* experimenta */
-
-}
-
-#workspaces button:hover {
-  box-shadow: inherit;
-  text-shadow: inherit;
-  color: #fbf1c7;
-  background-color: #504945;
-  transition: background-color 0.3s ease;
-}
-
-#workspaces button.urgent {
-  background-color: #cc241d;
-}
-
-#waybar {
-/*    margin:10px;
-*/
+  background: rgba(40, 40, 40, 0.84);
+  border: 1px solid #504945;
+  border-radius: 5px;
+  box-shadow: none;
 }
 
 window#waybar.hidden {
-  opacity: 0.5;
+  opacity: 0.75;
 }
 
-#workspaces {
-  background-color: transparent;
+.modules-left,
+.modules-center,
+.modules-right {
+  padding: 0 3px;
 }
-#workspaces button, 
-#memory,
-#custom-power,
-#battery,
-#backlight,
-#wireplumber,
+
+#custom-launcher,
+#window,
+#tray,
 #network,
-#custom-volume-bar,
+#bluetooth,
 #pulseaudio,
-#clock,
-#tray, 
-#custom-quote {
+#battery,
+#custom-notification,
+#clock {
+  border-radius: 5px;
+  min-height: 0;
+  padding: 1px 5px 0;
+  margin: 3px 1px 2px;
+  background: transparent;
+}
 
-  border-radius: 6px;
-  padding: 0px 6px;
-  margin-top: 3px;
+#custom-launcher,
+#custom-notification {
+  font-family: "JetBrainsMono Nerd Font", sans-serif;
+  font-size: 13px;
+}
+
+#custom-launcher {
+  color: #d5c4a1;
+  padding-left: 5px;
+}
+
+#network,
+#bluetooth,
+#custom-notification {
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  min-width: 16px;
+}
+
+#workspaces button {
+  font-family: "Nimbus Sans", sans-serif;
+  font-weight: 600;
+  min-width: 20px;
+  min-height: 19px;
+  padding: 1px 0 0;
+  margin: 2px;
+  border-radius: 50%;
+  background: transparent;
+  background-image: none;
+  box-shadow: none;
+  color: #a89984;
+}
+
+#workspaces button label {
+  color: #a89984;
+}
+
+#workspaces button.active {
+  background: transparent;
+  background-image: url("workspace-active.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 14px 14px;
+}
+
+#workspaces button.active label,
+#workspaces button.active:hover label {
+  color: #ebdbb2;
+}
+
+#workspaces button.urgent label {
+  color: #fb4934;
+}
+
+#workspaces button.urgent,
+#battery.critical {
+  color: #fb4934;
+}
+
+#workspaces button:hover,
+#custom-launcher:hover,
+#network:hover,
+#bluetooth:hover,
+#pulseaudio:hover,
+#battery:hover,
+#custom-notification:hover,
+#clock:hover {
+  background: rgba(80, 73, 69, 0.78);
+  box-shadow: none;
+  text-shadow: none;
+}
+
+#workspaces button.active:hover {
+  background-color: rgba(80, 73, 69, 0.45);
+  background-image: url("workspace-active.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 14px 14px;
+}
+
+#window {
+  font-weight: 600;
+  color: #d5c4a1;
+}
+
+#tray {
   padding-left: 4px;
   padding-right: 4px;
-  padding-top: 0px;
-  background-color: #3c3836;
-  color: #181825;
-  color: #fbf1c7;
-  background-color: #282828;
-  opacity: 1;
-  /*
-  box-shadow: 0.6px 0.5px 1.9px rgba(0,0,0,0.8);
-    */
-
 }
 
-
-
-#workspaces button  {
-  padding-top: 1px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-radius: 7px;
-  /*border-radius: 12px;*/
-  opacity: 0.85;
-
-
-}
- 
-
-
-
-#memory,
-#custom-power,
-#battery,
-#backlight,
-#wireplumber,
-#network,
-#custom-volume-bar,
-#pulseaudio,
-#clock,
-#tray,
-#custom-quote {
-  padding-top: 0;
-  border: 0.5px solid #fbf1c7;
-  border: 0.5px solid #3c3836;
-}
-
-
-
-
-#custom-logo {
-  padding-right: 7px;
-  padding-left: 7px;
-  margin-left: 5px;
-  font-size: 15px;
-  border-radius: 8px 0px 0px 8px;
-  color: #1793d1;
-}
-#battery.full {
-  background-color: #8ec57c;
-}
-
-#battery.warning,
-#battery.critical,
-#battery.urgent {
-  background-color: #ff0000;
-  background-color: #c75a5a;
-  /*color: #FFFF00;
-   */
+#battery.warning {
+  color: #fabd2f;
 }
 
 #battery.charging {
-  background-color: #8ec07c;
+  color: #b8bb26;
 }
 
-#backlight {
-  background-color: #fab387;
+#custom-notification.notification {
+  color: #d5c4a1;
 }
 
-#custom-volume-bar {
-  padding: 0 10px;
+#clock {
+  font-weight: 600;
+  padding-right: 5px;
 }
-
-#network {
-  padding-right:7px;
-}
-
-
-#custom-power:hover, #clock:hover, #pulseaudio:hover, #battery:hover, #workspaces button:hover, #network:hover, #custom-quote:hover{
-  /*
-  background-color: #504945; 
-  */
-  background-color: #282828;
-  transition: background-color 0.5s ease;
-  transition: opacity 0.5s ease;
-  opacity: 1;
-}
-
-
 
 tooltip {
-  border-radius: 6px;
-  padding: 0px;
-  background-color: #282828;
-  border: 0.5px solid #fbf1c7;
+  background: rgba(50, 48, 47, 0.96);
+  border: 1px solid #504945;
+  border-radius: 5px;
 }
 
 tooltip label {
-  background-color: #282828;
-}
-
-#clock  {
-  padding-top: 1px;
-  margin-right: 3px;
-}
-
-#pulseaudio {
-  padding-right: 6px;
+  padding: 4px;
+  color: #ebdbb2;
 }
