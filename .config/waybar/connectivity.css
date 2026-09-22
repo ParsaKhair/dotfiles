@@ -12,25 +12,22 @@
   text-shadow: none;
 }
 
+window.connectivity-panel {
+  background: transparent;
+  box-shadow: none;
+}
+
 .panel-content {
   background: @panel;
   border: 1px solid @border;
   border-radius: 5px;
-  box-shadow: 0 8px 22px rgba(29, 32, 33, 0.34);
-  padding: 8px 9px;
-}
-
-.panel-header {
-  padding: 0 2px 5px;
-}
-
-.panel-title {
-  font-size: 16px;
-  font-weight: 700;
+  box-shadow: none;
+  padding: 6px;
 }
 
 button {
   background: transparent;
+  background-image: none;
   border: none;
   box-shadow: none;
   outline: none;
@@ -40,54 +37,34 @@ button:hover {
   background: @hover;
 }
 
-button:focus {
+button:focus-visible {
   box-shadow: inset 0 0 0 1px @accent;
 }
 
 button.icon-button {
-  min-width: 22px;
-  min-height: 22px;
+  min-width: 18px;
+  min-height: 18px;
   padding: 0;
   border-radius: 5px;
-  font-size: 16px;
-}
-
-.segment {
-  background: @card;
-  border-radius: 5px;
-  padding: 2px;
-  margin: 0 0 6px;
-}
-
-button.segment-button {
-  min-height: 22px;
-  border-radius: 5px;
-  font-size: 11px;
-  font-weight: 600;
-  color: @secondary;
-}
-
-button.segment-button.selected {
-  background: @hover;
-  color: @text;
+  font-size: 13px;
 }
 
 .page-controls {
-  padding: 0 4px 5px;
+  padding: 2px 5px 6px;
 }
 
 .section-title {
-  font-size: 13px;
-  font-weight: 700;
+  font-size: 12px;
+  font-weight: 600;
 }
 
 button.radio-toggle {
   background: @card;
   border: 1px solid @border;
-  border-radius: 5px;
+  border-radius: 12px;
   background-image: none;
-  min-width: 40px;
-  min-height: 20px;
+  min-width: 24px;
+  min-height: 12px;
   padding: 1px;
 }
 
@@ -97,15 +74,15 @@ button.radio-toggle:checked {
 
 button.radio-toggle .toggle-knob {
   background: #ebdbb2;
-  border-radius: 5px;
-  min-width: 17px;
-  min-height: 17px;
+  border-radius: 50%;
+  min-width: 10px;
+  min-height: 10px;
   margin-left: 0;
-  margin-right: 19px;
+  margin-right: 12px;
 }
 
 button.radio-toggle:checked .toggle-knob {
-  margin-left: 19px;
+  margin-left: 12px;
   margin-right: 0;
 }
 
@@ -119,57 +96,50 @@ viewport,
   padding-bottom: 2px;
 }
 
-.list-section {
-  color: @secondary;
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  margin: 7px 5px 3px;
+.item {
+  min-height: 22px;
+  background: #282828;
+  border-radius: 5px;
+  padding: 0;
 }
 
-.item {
-  min-height: 34px;
-  background: @card;
-  border-radius: 5px;
-  padding: 1px 5px;
+.item.alternate {
+  background: #3c3836;
 }
 
 button.item-main {
-  min-height: 32px;
-  padding: 0 3px;
+  min-height: 22px;
+  padding: 0;
   border-radius: 5px;
+}
+
+.item-body {
+  padding: 0 6px;
 }
 
 button.item-main:hover {
   background: @hover;
 }
 
-.item-icon {
-  color: @accent;
-  min-width: 20px;
+.connection-dot {
+  color: #b8bb26;
+  font-size: 7px;
+  min-width: 7px;
 }
 
 .item-title {
-  font-size: 11px;
-  font-weight: 600;
+  font-size: 10px;
+  font-weight: 400;
 }
 
-.item-subtitle {
+.item-lock {
   color: @secondary;
-  font-size: 10px;
-}
-
-.item-badge {
-  color: @accent;
-  font-size: 10px;
-  font-weight: 600;
-  margin-right: 4px;
 }
 
 .empty-message {
   color: @secondary;
-  font-size: 11px;
-  margin: 9px 6px;
+  font-size: 10px;
+  margin: 6px;
 }
 
 button.text-button {
@@ -177,8 +147,8 @@ button.text-button {
   font-size: 10px;
   font-weight: 600;
   border-radius: 5px;
-  padding: 3px 6px;
-  margin: 2px;
+  padding: 2px 5px;
+  margin: 0;
 }
 
 .footer {

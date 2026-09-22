@@ -5,13 +5,14 @@
   font-family: "Nimbus Sans", "JetBrainsMono Nerd Font", sans-serif;
   font-size: 11px;
   color: #ebdbb2;
+  text-shadow: none;
 }
 
 window#waybar {
   background: rgba(40, 40, 40, 0.84);
   border: 1px solid #504945;
   border-radius: 5px;
-  box-shadow: 0 3px 10px rgba(29, 32, 33, 0.30);
+  box-shadow: none;
 }
 
 window#waybar.hidden {
@@ -25,7 +26,6 @@ window#waybar.hidden {
 }
 
 #custom-launcher,
-#workspaces button,
 #window,
 #tray,
 #network,
@@ -35,9 +35,9 @@ window#waybar.hidden {
 #custom-notification,
 #clock {
   border-radius: 5px;
-  min-height: 22px;
-  padding: 0 5px;
-  margin: 0 1px;
+  min-height: 0;
+  padding: 1px 5px 0;
+  margin: 3px 1px 2px;
   background: transparent;
 }
 
@@ -52,15 +52,46 @@ window#waybar.hidden {
   padding-left: 5px;
 }
 
+#network,
+#bluetooth,
+#custom-notification {
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  min-width: 16px;
+}
+
 #workspaces button {
-  min-width: 11px;
-  padding: 0 4px;
+  font-family: "Nimbus Sans", sans-serif;
+  font-weight: 600;
+  min-width: 20px;
+  min-height: 19px;
+  padding: 1px 0 0;
+  margin: 2px;
+  border-radius: 50%;
+  background: transparent;
+  background-image: none;
+  box-shadow: none;
+  color: #a89984;
+}
+
+#workspaces button label {
   color: #a89984;
 }
 
 #workspaces button.active {
+  background: transparent;
+  background-image: url("workspace-active.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 14px 14px;
+}
+
+#workspaces button.active label,
+#workspaces button.active:hover label {
   color: #ebdbb2;
-  background: rgba(80, 73, 69, 0.88);
+}
+
+#workspaces button.urgent label {
+  color: #fb4934;
 }
 
 #workspaces button.urgent,
@@ -79,6 +110,14 @@ window#waybar.hidden {
   background: rgba(80, 73, 69, 0.78);
   box-shadow: none;
   text-shadow: none;
+}
+
+#workspaces button.active:hover {
+  background-color: rgba(80, 73, 69, 0.45);
+  background-image: url("workspace-active.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 14px 14px;
 }
 
 #window {

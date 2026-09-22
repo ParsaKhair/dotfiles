@@ -141,18 +141,18 @@ def make_label(text, css_class=None, xalign=0):
     label = Gtk.Label(label=text, xalign=xalign)
     if css_class:
         label.get_style_context().add_class(css_class)
-    if css_class in ("item-title", "item-subtitle"):
+    if css_class == "item-title":
         label.set_max_width_chars(28)
         label.set_ellipsize(Pango.EllipsizeMode.END)
     return label
 
 
 class ConnectivityWindow(Gtk.ApplicationWindow):
-    def __init__(self, app):
+    def __init__(self, app, page):
         super().__init__(application=app)
-        self.set_title("Connectivity")
-        self.set_default_size(320, 320)
-        self.set_size_request(300, 300)
+        self.set_title("Wi-Fi" if page == "wifi" else "Bluetooth")
+        self.set_default_size(240, -1)
+        self.set_size_request(240, -1)
         self.set_decorated(False)
         self.get_style_context().add_class("connectivity-panel")
         self.set_app_paintable(True)
@@ -177,7 +177,7 @@ class ConnectivityWindow(Gtk.ApplicationWindow):
         self.connect("key-press-event", self.on_key)
         self.connect("destroy", self.on_destroy)
         self.pool = ThreadPoolExecutor(max_workers=3)
-        self.page = "wifi"
+        self.page = page
         self.nm = None
         self.saved_profiles = {}
         self.profiles_ready = False
@@ -192,7 +192,8 @@ class ConnectivityWindow(Gtk.ApplicationWindow):
         self.pair_dialog = None
         self.build()
         GLib.timeout_add_seconds(5, self.periodic_refresh)
-        GLib.idle_add(self.load_saved_profiles)
+        if page == "wifi":
+            GLib.idle_add(self.load_saved_profiles)
 
     def on_key(self, _window, event):
         if event.keyval == Gdk.KEY_Escape:
@@ -211,7 +212,7 @@ class ConnectivityWindow(Gtk.ApplicationWindow):
             self.bus.unregister_object(self.agent_id)
         self.pool.shutdown(wait=False, cancel_futures=True)
         app = self.get_application()
-        if app:
+        if app and app.window is self:
             app.window = None
 
     def background(self, work, done):
@@ -235,50 +236,23 @@ class ConnectivityWindow(Gtk.ApplicationWindow):
         root.get_style_context().add_class("panel-content")
         self.add(root)
 
-        header = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=8)
-        header.get_style_context().add_class("panel-header")
-        title = make_label("Connectivity", "panel-title")
-        header.pack_start(title, True, True, 0)
-        close = Gtk.Button(label="×")
-        close.get_style_context().add_class("icon-button")
-        close.set_tooltip_text("Close")
-        close.connect("clicked", lambda *_: self.close())
-        header.pack_end(close, False, False, 0)
-        root.pack_start(header, False, False, 0)
-
-        segment = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=2)
-        segment.get_style_context().add_class("segment")
-        self.wifi_tab = Gtk.Button(label="Wi-Fi")
-        self.bt_tab = Gtk.Button(label="Bluetooth")
-        for button, page in ((self.wifi_tab, "wifi"), (self.bt_tab, "bluetooth")):
-            button.get_style_context().add_class("segment-button")
-            button.connect("clicked", lambda _button, target=page: self.select(target))
-            segment.pack_start(button, True, True, 0)
-        root.pack_start(segment, False, False, 0)
-
-        self.stack = Gtk.Stack()
-        self.stack.set_transition_type(Gtk.StackTransitionType.SLIDE_LEFT_RIGHT)
-        self.stack.set_transition_duration(160)
-        root.pack_start(self.stack, True, True, 0)
-        self.wifi_page, self.wifi_rows = self.make_page("Wi-Fi", self.scan_wifi)
-        self.bt_page, self.bt_rows = self.make_page("Bluetooth", self.scan_bluetooth)
-        wifi_footer = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=8)
-        wifi_footer.get_style_context().add_class("footer")
-        wifi_footer.pack_start(self.action("Other Network…", self.other_network), False, False, 0)
-        wifi_footer.pack_end(self.action("Profiles…", lambda: self.open_editor()), False, False, 0)
-        self.wifi_page.pack_end(wifi_footer, False, False, 0)
-        self.stack.add_named(self.wifi_page, "wifi")
-        self.stack.add_named(self.bt_page, "bluetooth")
-        self.wifi_switch = self.wifi_page.radio_switch
-        self.bt_switch = self.bt_page.radio_switch
-        self.wifi_scan = self.wifi_page.scan_button
-        self.bt_scan = self.bt_page.scan_button
-        self.wifi_switch_handler = self.wifi_switch.connect(
-            "toggled", lambda button: self.toggle_wifi(button.get_active()),
-        )
-        self.bt_switch_handler = self.bt_switch.connect(
-            "toggled", lambda button: self.toggle_bluetooth(button.get_active()),
-        )
+        if self.page == "wifi":
+            page, self.wifi_rows = self.make_page("Wi-Fi", self.scan_wifi)
+            self.wifi_switch = page.radio_switch
+            self.wifi_scan = page.scan_button
+            self.wifi_switch_handler = self.wifi_switch.connect(
+                "toggled", lambda button: self.toggle_wifi(button.get_active()),
+            )
+            page.footer.pack_start(self.action("Other Network…", self.other_network), False, False, 0)
+            page.footer.pack_start(self.action("Profiles…", self.open_editor), False, False, 0)
+        else:
+            page, self.bt_rows = self.make_page("Bluetooth", self.scan_bluetooth)
+            self.bt_switch = page.radio_switch
+            self.bt_scan = page.scan_button
+            self.bt_switch_handler = self.bt_switch.connect(
+                "toggled", lambda button: self.toggle_bluetooth(button.get_active()),
+            )
+        root.pack_start(page, True, True, 0)
 
         self.status = make_label("", "status-message")
         self.status.set_line_wrap(True)
@@ -294,10 +268,11 @@ class ConnectivityWindow(Gtk.ApplicationWindow):
         refresh.get_style_context().add_class("icon-button")
         refresh.set_tooltip_text("Scan again")
         refresh.connect("clicked", lambda *_: scan())
-        controls.pack_end(refresh, False, False, 0)
         switch = Gtk.ToggleButton()
         switch.get_style_context().add_class("radio-toggle")
-        knob = make_label(" ", "toggle-knob")
+        knob = Gtk.Box()
+        knob.get_style_context().add_class("toggle-knob")
+        knob.set_valign(Gtk.Align.CENTER)
         switch.add(knob)
         switch.set_valign(Gtk.Align.CENTER)
         switch.set_tooltip_text(f"Turn {name} on or off")
@@ -308,19 +283,21 @@ class ConnectivityWindow(Gtk.ApplicationWindow):
 
         scroll = Gtk.ScrolledWindow()
         scroll.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC)
-        scroll.set_min_content_height(150)
-        rows = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=3)
+        scroll.set_min_content_height(22)
+        scroll.set_max_content_height(220)
+        scroll.set_propagate_natural_height(True)
+        rows = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=1)
         rows.get_style_context().add_class("rows")
         scroll.add(rows)
         page.pack_start(scroll, True, True, 0)
+        footer = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=2)
+        footer.get_style_context().add_class("footer")
+        footer.pack_end(refresh, False, False, 0)
+        page.pack_end(footer, False, False, 0)
+        page.footer = footer
         return page, rows
 
     def select(self, page):
-        self.page = page
-        self.stack.set_visible_child_name(page)
-        for button, selected in ((self.wifi_tab, page == "wifi"), (self.bt_tab, page == "bluetooth")):
-            context = button.get_style_context()
-            context.add_class("selected") if selected else context.remove_class("selected")
         self.clear_status()
         if page == "wifi":
             self.refresh_wifi()
@@ -344,6 +321,10 @@ class ConnectivityWindow(Gtk.ApplicationWindow):
         for child in box.get_children():
             box.remove(child)
 
+    def show_rows(self, box):
+        box.show_all()
+        self.resize(240, 1)
+
     def notice(self, message):
         self.status.set_text(message)
         self.status.show()
@@ -351,10 +332,6 @@ class ConnectivityWindow(Gtk.ApplicationWindow):
     def clear_status(self):
         self.status.hide()
         self.status.set_text("")
-
-    def section(self, box, title):
-        label = make_label(title.upper(), "list-section")
-        box.pack_start(label, False, False, 0)
 
     def empty(self, box, message):
         label = make_label(message, "empty-message")
@@ -367,20 +344,28 @@ class ConnectivityWindow(Gtk.ApplicationWindow):
         button.connect("clicked", lambda *_: callback())
         return button
 
-    def item(self, box, icon, title, subtitle, callback=None, badge=None, trailing=None):
-        row = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=6)
+    def item(self, box, title, tooltip, callback=None, connected=False, locked=False):
+        row = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
         row.get_style_context().add_class("item")
-        body = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=8)
+        item_count = sum(child.get_style_context().has_class("item") for child in box.get_children())
+        if item_count % 2:
+            row.get_style_context().add_class("alternate")
+        if connected:
+            row.get_style_context().add_class("connected")
+        row.set_tooltip_text(f"{title} · {tooltip}")
+        body = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=5)
+        body.get_style_context().add_class("item-body")
         body.set_valign(Gtk.Align.CENTER)
-        image = Gtk.Image.new_from_icon_name(icon, Gtk.IconSize.BUTTON)
-        image.get_style_context().add_class("item-icon")
-        image.set_valign(Gtk.Align.CENTER)
-        body.pack_start(image, False, False, 0)
-        texts = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=0)
-        texts.set_valign(Gtk.Align.CENTER)
-        texts.pack_start(make_label(title, "item-title"), False, False, 0)
-        texts.pack_start(make_label(subtitle, "item-subtitle"), False, False, 0)
-        body.pack_start(texts, True, True, 0)
+        indicator = make_label("●" if connected else "", "connection-dot")
+        indicator.get_accessible().set_name("Connected" if connected else "Not connected")
+        body.pack_start(indicator, False, False, 0)
+        body.pack_start(make_label(title, "item-title"), True, True, 0)
+        if locked:
+            lock = Gtk.Image.new_from_icon_name("changes-prevent-symbolic", Gtk.IconSize.MENU)
+            lock.set_pixel_size(10)
+            lock.get_style_context().add_class("item-lock")
+            lock.get_accessible().set_name("Secured network")
+            body.pack_end(lock, False, False, 0)
         if callback:
             button = Gtk.Button()
             button.get_style_context().add_class("item-main")
@@ -389,13 +374,6 @@ class ConnectivityWindow(Gtk.ApplicationWindow):
             row.pack_start(button, True, True, 0)
         else:
             row.pack_start(body, True, True, 0)
-        if badge:
-            badge_label = make_label(badge, "item-badge", 1)
-            badge_label.set_valign(Gtk.Align.CENTER)
-            row.pack_end(badge_label, False, False, 0)
-        if trailing:
-            trailing.get_style_context().add_class("row-action")
-            row.pack_end(trailing, False, False, 0)
         box.pack_start(row, False, False, 0)
         return row
 
@@ -442,15 +420,15 @@ class ConnectivityWindow(Gtk.ApplicationWindow):
             self.wifi_scan.set_sensitive(bool(device) and enabled)
             if not device:
                 self.empty(box, "No Wi-Fi adapter was found.")
-                box.show_all()
+                self.show_rows(box)
                 return
             if not client.wireless_hardware_get_enabled():
                 self.empty(box, "Wi-Fi is disabled by a hardware switch.")
-                box.show_all()
+                self.show_rows(box)
                 return
             if not enabled:
                 self.empty(box, "Turn on Wi-Fi to see nearby networks.")
-                box.show_all()
+                self.show_rows(box)
                 return
 
             current = device.get_active_access_point()
@@ -474,32 +452,23 @@ class ConnectivityWindow(Gtk.ApplicationWindow):
             networks = sorted(groups.values(), key=lambda n: (not n["active"], -n["ap"].get_strength(), n["ssid"].casefold()))
             if current and not any(n["active"] for n in networks):
                 # Active hidden networks still deserve a visible status row.
-                self.section(box, "Connected")
-                self.item(box, "network-wireless-symbolic", "Hidden network", "Connected", badge="✓")
-            for index, network in enumerate(networks):
-                if index == 0 or (networks[index - 1]["active"] and not network["active"]):
-                    self.section(box, "Connected" if network["active"] else "Nearby")
+                self.item(box, "Hidden network", "Connected", connected=True,
+                          locked=wifi_security(current) != "open")
+            for network in networks:
                 self.wifi_item(box, network, device)
             if not networks and not current:
                 self.empty(box, "No networks found. Try scanning again.")
-            box.show_all()
+            self.show_rows(box)
         except Exception as error:
             self.wifi_switch.set_sensitive(False)
             self.wifi_scan.set_sensitive(False)
             self.empty(box, f"NetworkManager is unavailable: {error}")
-            box.show_all()
+            self.show_rows(box)
 
     def wifi_item(self, box, network, device):
         active = network["active"]
         security = network["security"]
         profile = network["profile"]
-        strength = network["ap"].get_strength()
-        icon = (
-            "network-wireless-signal-excellent-symbolic" if strength >= 75
-            else "network-wireless-signal-good-symbolic" if strength >= 50
-            else "network-wireless-signal-ok-symbolic" if strength >= 25
-            else "network-wireless-signal-weak-symbolic"
-        )
         if active:
             state = device.get_connectivity(socket.AF_UNSPEC)
             if state == NM.ConnectivityState.PORTAL:
@@ -508,7 +477,7 @@ class ConnectivityWindow(Gtk.ApplicationWindow):
                 subtitle = "Connected · limited internet"
             else:
                 subtitle = "Connected"
-            self.item(box, icon, network["ssid"], subtitle, badge="✓")
+            self.item(box, network["ssid"], subtitle, connected=True, locked=security != "open")
             if state in (NM.ConnectivityState.PORTAL, NM.ConnectivityState.LIMITED, NM.ConnectivityState.UNKNOWN):
                 box.pack_start(self.action("Open sign-in page", self.open_portal), False, False, 0)
             return
@@ -520,7 +489,7 @@ class ConnectivityWindow(Gtk.ApplicationWindow):
         if profile:
             subtitle = "Saved profile" + (" · school / work" if security == "enterprise" else "")
         self.item(
-            box, icon, network["ssid"], subtitle,
+            box, network["ssid"], subtitle, locked=security != "open",
             callback=lambda n=network: self.join_wifi(n),
         )
 
@@ -728,7 +697,7 @@ class ConnectivityWindow(Gtk.ApplicationWindow):
             if error:
                 self.clear_rows(self.bt_rows)
                 self.empty(self.bt_rows, f"Bluetooth is unavailable: {error}")
-                self.bt_rows.show_all()
+                self.show_rows(self.bt_rows)
                 self.bt_switch.set_sensitive(False)
                 self.bt_scan.set_sensitive(False)
             else:
@@ -765,24 +734,18 @@ class ConnectivityWindow(Gtk.ApplicationWindow):
                 ),
                 key=lambda d: (-d["rssi"], d["name"].casefold()),
             )
-            if paired:
-                self.section(box, "My devices")
-                for device in paired:
-                    self.bluetooth_item(box, device)
-            self.section(box, "Nearby")
-            if nearby:
-                for device in nearby:
-                    self.bluetooth_item(box, device)
-            else:
+            for device in paired + nearby:
+                self.bluetooth_item(box, device)
+            if not paired and not nearby:
                 message = (
                     "No named devices nearby. Show unnamed devices or scan again."
-                    if unnamed else "No nearby devices yet. Put a device in pairing mode and scan."
+                    if unnamed else "No devices found. Try scanning again."
                 )
                 self.empty(box, message)
             if unnamed:
                 label = "Hide unnamed devices" if self.show_unnamed_devices else f"Show {len(unnamed)} unnamed devices"
                 box.pack_start(self.action(label, self.toggle_unnamed_devices), False, False, 0)
-        box.show_all()
+        self.show_rows(box)
 
     def toggle_unnamed_devices(self):
         self.show_unnamed_devices = not self.show_unnamed_devices
@@ -792,14 +755,12 @@ class ConnectivityWindow(Gtk.ApplicationWindow):
         connected = device["connected"]
         paired = device["paired"]
         subtitle = "Connected" if connected else ("Paired" if paired else "Available to pair")
-        icon = "bluetooth-active-symbolic" if connected else "bluetooth-symbolic"
-        badge = "✓" if connected else None
         callback = (
             (lambda d=device: self.bluetooth_method(d, "Disconnect"))
             if connected else (lambda d=device: self.bluetooth_method(d, "Connect"))
             if paired else (lambda d=device: self.pair_device(d))
         )
-        self.item(box, icon, device["name"], subtitle, callback=callback, badge=badge)
+        self.item(box, device["name"], subtitle, callback=callback, connected=connected)
 
     def toggle_bluetooth(self, enabled):
         try:
@@ -997,16 +958,24 @@ class ConnectivityApp(Gtk.Application):
             flags=Gio.ApplicationFlags.HANDLES_COMMAND_LINE,
         )
         self.window = None
+        close_action = Gio.SimpleAction.new("close", None)
+        close_action.connect("activate", self.close_menu)
+        self.add_action(close_action)
+
+    def close_menu(self, *_args):
+        if self.window is not None:
+            self.window.destroy()
 
     def do_command_line(self, command_line):
         args = command_line.get_arguments()
         page = "bluetooth" if len(args) > 1 and args[1] == "bluetooth" else "wifi"
         if self.window and self.window.get_visible() and self.window.page == page:
-            self.window.close()
+            self.window.destroy()
             self.window = None
         else:
-            if self.window is None:
-                self.window = ConnectivityWindow(self)
+            if self.window is not None:
+                self.window.destroy()
+            self.window = ConnectivityWindow(self, page)
             self.window.show_all()
             self.window.select(page)
             self.window.present()

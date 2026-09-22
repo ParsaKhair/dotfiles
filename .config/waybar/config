@@ -30,12 +30,7 @@
   },
   "hyprland/workspaces": {
     "on-click": "activate",
-    "format": "{icon}",
-    "format-icons": {
-      "default": "•",
-      "active": "●",
-      "urgent": "!"
-    },
+    "format": "{id}",
     "persistent-workspaces": {
       "1": [],
       "2": [],
@@ -54,6 +49,7 @@
     "icon-size": 13
   },
   "network": {
+    "align": 0.5,
     "format-wifi": "{icon}",
     "format-icons": [
       "󰤯",
@@ -71,8 +67,8 @@
     "interval": 5
   },
   "pulseaudio": {
-    "format": "{icon} {volume}%",
-    "format-bluetooth": "󰂯 {volume}%",
+    "format": "{icon}",
+    "format-bluetooth": "󰂯",
     "format-muted": "󰖁",
     "format-icons": {
       "headphone": "",
@@ -85,7 +81,9 @@
     "max-volume": 100,
     "tooltip-format": "{desc} · {volume}%",
     "on-click": "pavucontrol",
-    "on-click-right": "pamixer -t",
+    "on-click-right": "pamixer -t && ~/.config/hypr/scripts/volume-notify.sh",
+    "on-scroll-up": "pamixer -i 1 && ~/.config/hypr/scripts/volume-notify.sh",
+    "on-scroll-down": "pamixer -d 1 && ~/.config/hypr/scripts/volume-notify.sh",
     "scroll-step": 1
   },
   "battery": {
@@ -139,6 +137,7 @@
     "tooltip-format": "{calendar}"
   },
   "bluetooth": {
+    "align": 0.5,
     "format": "󰂯",
     "format-connected": "󰂱",
     "format-off": "󰂲",
