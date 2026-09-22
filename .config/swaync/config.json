@@ -6,9 +6,11 @@
   "layer-shell": true,
   "control-center-margin-top": 4,
   "control-center-margin-right": 4,
-  "control-center-width": 320,
-  "control-center-height": 280,
-  "notification-window-width": 320,
+  "control-center-exclusive-zone": true,
+  "control-center-width": 300,
+  "control-center-height": 300,
+  "notification-icon-size": 40,
+  "notification-window-width": 260,
   "fit-to-screen": false,
   "relative-timestamps": true,
   "transition-time": 220,
@@ -21,12 +23,11 @@
     "title",
     "dnd",
     "mpris",
-    "volume",
     "notifications"
   ],
   "widget-config": {
     "title": {
-      "text": "Notification Center",
+      "text": "Notifications",
       "clear-all-button": true,
       "button-text": "Clear All"
     },

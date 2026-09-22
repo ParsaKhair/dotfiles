@@ -6,11 +6,18 @@
 @define-color glass-text #ebdbb2;
 @define-color muted-text #bdae93;
 @define-color accent #d5c4a1;
+@define-color noti-bg-opaque #3c3836;
+@define-color noti-bg-hover-opaque #504945;
+@define-color noti-bg-hover #504945;
+@define-color text-color #ebdbb2;
+@define-color text-color-disabled #bdae93;
+@define-color bg-selected #98971a;
 
 * {
   font-family: "Nimbus Sans", sans-serif;
   font-size: 11px;
   color: @glass-text;
+  text-shadow: none;
 }
 
 .blank-window,
@@ -36,7 +43,7 @@
   background: @card-bg;
   border: 1px solid @glass-border;
   border-radius: 5px;
-  box-shadow: 0 4px 14px rgba(29, 32, 33, 0.30);
+  box-shadow: none;
 }
 
 .notification-row .notification-background .notification.critical {
@@ -55,7 +62,7 @@
 
 .notification-row .notification-background .close-button {
   background: @card-hover;
-  border-radius: 5px;
+  border-radius: 50%;
   min-width: 18px;
   min-height: 18px;
 }
@@ -81,20 +88,38 @@
   background: #504945;
   border-radius: 5px;
   min-height: 4px;
+  border: none;
+  box-shadow: none;
 }
 
 .notification-row .notification-background .notification .notification-default-action .notification-content progressbar progress {
   background: @accent;
   border-radius: 5px;
   min-height: 4px;
+  border: none;
+  box-shadow: none;
 }
 
 .control-center {
+  /* Keep a 260px card inside SwayNC's minimum 300px allocation. */
+  margin-left: 40px;
   background: @glass-bg;
   color: @glass-text;
   border: 1px solid @glass-border;
   border-radius: 5px;
-  box-shadow: 0 8px 22px rgba(29, 32, 33, 0.34);
+  box-shadow: none;
+}
+
+.control-center .notification-row .notification-background {
+  padding: 3px 6px;
+}
+
+.notification-row .notification-background .notification .notification-action:first-child {
+  border-bottom-left-radius: 5px;
+}
+
+.notification-row .notification-background .notification .notification-action:last-child {
+  border-bottom-right-radius: 5px;
 }
 
 .control-center .control-center-list {
@@ -111,6 +136,11 @@
   font-weight: 700;
 }
 
+.widget-title > label {
+  font-size: 13px;
+  font-weight: 700;
+}
+
 .widget-title > button {
   color: @accent;
   background: @card-bg;
@@ -118,6 +148,9 @@
   border-radius: 5px;
   padding: 3px 6px;
   font-size: 10px;
+  min-height: 22px;
+  box-shadow: none;
+  background-image: none;
 }
 
 .widget-title > button:hover {
@@ -132,20 +165,31 @@
 .widget-dnd > switch {
   background: #504945;
   border: 1px solid @glass-border;
-  border-radius: 5px;
+  border-radius: 12px;
+  min-width: 40px;
+  min-height: 20px;
+  padding: 1px;
+  background-image: none;
 }
 
 .widget-dnd > switch:checked {
   background: #98971a;
 }
 
-.widget-dnd > switch slider {
-  background: #ebdbb2;
-  border-radius: 5px;
+.widget-dnd > switch image {
+  color: transparent;
 }
 
-.widget-mpris .widget-mpris-player,
-.widget-volume {
+.widget-dnd > switch slider {
+  background: #ebdbb2;
+  border-radius: 50%;
+  min-width: 17px;
+  min-height: 17px;
+  border: none;
+  box-shadow: none;
+}
+
+.widget-mpris .widget-mpris-player {
   background: @card-bg;
   border: 1px solid @glass-border;
   border-radius: 5px;
@@ -156,22 +200,7 @@
 
 .widget-mpris .widget-mpris-player .widget-mpris-album-art {
   border-radius: 5px;
-}
-
-.widget-volume scale trough {
-  background: #504945;
-  border-radius: 5px;
-  min-height: 4px;
-}
-
-.widget-volume scale highlight {
-  background: @accent;
-  border-radius: 5px;
-}
-
-.widget-volume scale slider {
-  background: #ebdbb2;
-  border-radius: 5px;
+  box-shadow: none;
 }
 
 .notification-group .notification-group-headers,
