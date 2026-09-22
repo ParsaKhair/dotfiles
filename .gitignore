@@ -28,4 +28,5 @@ CLAUDE.md
 .config/Claude/
 AGENTS.md
 MEMORY.md
+.ui-backups/
 .config/waybar/quotes.txt
