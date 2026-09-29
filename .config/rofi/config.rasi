@@ -18,7 +18,10 @@ configuration {
     terminal: "alacritty";
     font: "Arial 12";
     recursivebrowser  {
-        command: "alacritty -e ranger --selectfile";
+        // Include .config while keeping other hidden entries out of the search.
+        filter-regex: "^[.](?!config$).*";
+        // Load shell preferences (including EDITOR/VISUAL) before starting Ranger.
+        command: "alacritty -e bash -ic 'exec ranger --selectfile \"$@\"' ranger";
       }
 /*	location: 0;*/
 /*	yoffset: 0;*/
