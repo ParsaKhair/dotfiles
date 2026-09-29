@@ -1,11 +1,13 @@
 [Default Applications]
-application/pdf=org.pwmt.zathura.desktop
+application/pdf=librewolf.desktop
 text/html=librewolf.desktop
 x-scheme-handler/http=librewolf.desktop
 x-scheme-handler/https=librewolf.desktop
 x-scheme-handler/about=librewolf.desktop
 x-scheme-handler/unknown=librewolf.desktop
-inode/directory=ranger.desktop
+inode/directory=nemo.desktop
+x-scheme-handler/claude-cli=claude-code-url-handler.desktop
+x-scheme-handler/stirlingpdf=Stirling-PDF-handler.desktop
 
 [Added Associations]
 application/pdf=org.pwmt.zathura.desktop;

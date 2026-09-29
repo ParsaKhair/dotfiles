@@ -1,0 +1,158 @@
+#!/usr/bin/env bash
+# omni — natural-language desktop command bar.
+#
+# You type plain language ("open my quantum textbook", "open the 5570 canvas
+# assignments", "show my be5590 lab in files"). A fast model (TIER 1) turns that
+# into ONE concrete command and omni runs it instantly. If the request is hard
+# or open-ended, the model escalates to the full Claude agent (TIER 2).
+#
+# Usage:
+#   omni                 # pop an input box (rofi) and ask
+#   omni <text...>       # run a request straight from the CLI
+set -uo pipefail
+
+self_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# shellcheck source=/dev/null
+source "$self_dir/config.sh"
+# shellcheck source=/dev/null
+source "$self_dir/lib.sh"
+# shellcheck source=/dev/null
+source "$self_dir/index.sh"
+
+run_detached() { setsid -f "$@" >/dev/null 2>&1; }
+note() { notify-send -t "${2:-4000}" "omni" "$1"; }
+
+canvas_url() {  # $1 = course short-name (may be empty)
+  local c="${1:-}" id=""
+  [ -n "$c" ] && id="${CANVAS_ID[$c]:-}"   # guard: empty key is a bad subscript under set -u
+  if [ -n "$id" ]; then printf '%s/courses/%s\n' "$CANVAS_BASE" "$id"
+  else printf '%s\n' "$CANVAS_BASE"; fi
+}
+
+smart_open() {  # $1 = path (file or dir)
+  local t="$1"
+  if [ -d "$t" ]; then run_detached "$TERMINAL" -e "$FILE_MANAGER" "$t"; return; fi
+  case "${t,,}" in
+    *.pdf)                    run_detached $PDF_CMD "$t" ;;
+    *.tex|*.md|*.csv|*.ipynb) run_detached "$TERMINAL" -e "$EDITOR_CMD" "$t" ;;
+    *)                        run_detached xdg-open "$t" ;;
+  esac
+}
+
+# ── 1. get the request ──────────────────────────────────────────────────────
+query="$*"
+if [ -z "${query// }" ]; then
+  query="$(: | rofi -dmenu -p omni -mesg 'ask in plain language' -lines 0 \
+              -theme-str 'listview {enabled: false;} mainbox {children: [inputbar];}')"
+fi
+[ -z "${query// }" ] && exit 0
+
+command -v claude >/dev/null 2>&1 || { note "claude CLI not found on PATH"; exit 1; }
+
+# ── 2. build the catalog the parser reasons over ────────────────────────────
+omni_ensure_index
+catalog="$(awk -F'\t' '{printf "%s\t%s\n", $2, $4}' "$OMNI_INDEX" 2>/dev/null)"
+courses="$(printf '%s ' "${!CANVAS_ID[@]}")"
+
+parse_sys="You translate ONE natural-language desktop request into ONE action on a
+Hyprland/Fedora machine. Output ONLY a single-line minified JSON object — no
+prose, no markdown, no code fences — and take no other action.
+
+Choose exactly one:
+ {\"action\":\"open\",\"path\":\"<abs path from CATALOG>\"}    open a file or folder
+ {\"action\":\"reveal\",\"path\":\"<abs path from CATALOG>\"}  show it in the file manager
+ {\"action\":\"edit\",\"path\":\"<abs path from CATALOG>\"}    open it in the text editor
+ {\"action\":\"canvas\",\"course\":\"<one of COURSES, or empty>\"}  open a course's Canvas page (empty = dashboard)
+ {\"action\":\"url\",\"url\":\"https://...\"}                open a specific web URL
+ {\"action\":\"escalate\"}                                  the task is complex, multi-step, ambiguous, needs reasoning or content changes, or is not covered above
+
+Rules:
+- Resolve references semantically against CATALOG (e.g. 'my quantum textbook' -> the Sakurai pdf). Only emit a path that appears verbatim in CATALOG.
+- Default to 'open' unless the user clearly says reveal/show-in-files or edit.
+- When unsure or the request needs real work, return {\"action\":\"escalate\"}.
+
+COURSES: $courses
+SEMESTER DIR: $OMNI_SEM_DIR
+
+CATALOG (abs path <TAB> description):
+$catalog"
+
+# ── 3. parse (TIER 1, fast) ─────────────────────────────────────────────────
+# Three ways to run the parser, fastest first:
+#   1. OMNI_PARSE_CMD  — your own command (e.g. a local model). Gets the request
+#      on argv and the system prompt on stdin; must print the JSON.
+#   2. ANTHROPIC_API_KEY set — a raw Messages API call (~1s, no harness startup).
+#   3. default — `claude -p` with MCP servers skipped (~3s; uses your CLI login).
+omni_parse() {
+  if [ -n "${OMNI_PARSE_CMD:-}" ]; then
+    printf '%s' "$parse_sys" | $OMNI_PARSE_CMD "$query" 2>/dev/null
+  elif [ -n "${ANTHROPIC_API_KEY:-}" ]; then
+    jq -n --arg m "${OMNI_API_MODEL:-claude-haiku-4-5-20251001}" \
+          --arg s "$parse_sys" --arg q "$query" \
+      '{model:$m,max_tokens:256,system:$s,messages:[{role:"user",content:$q}]}' |
+      curl -sS https://api.anthropic.com/v1/messages \
+        -H "x-api-key: $ANTHROPIC_API_KEY" \
+        -H 'anthropic-version: 2023-06-01' \
+        -H 'content-type: application/json' --data-binary @- 2>/dev/null |
+      jq -r '.content[0].text // empty' 2>/dev/null
+  else
+    claude -p "$query" --model "$OMNI_PARSE_MODEL" --strict-mcp-config \
+      --append-system-prompt "$parse_sys" \
+      --disallowedTools Bash Read Write Edit Glob Grep WebFetch WebSearch 2>/dev/null
+  fi
+}
+
+# Instant feedback: the parse takes ~1s (fast path) to several seconds (CLI
+# default), during which nothing is on screen yet. A transient toast bridges
+# that gap so the hot path never feels dead. (Skipped in dry-run tests.)
+[ -z "${OMNI_DRYRUN:-}" ] && notify-send -t 2000 "omni" "…" 2>/dev/null
+
+t0=$(date +%s%N)
+raw="$(omni_parse)"
+parse_ms=$(( ($(date +%s%N) - t0) / 1000000 ))
+# Robust extraction: collapse newlines so a pretty-printed object still matches,
+# then take the outermost {...}.
+json="$(printf '%s' "$raw" | tr '\n' ' ' | grep -o '{.*}' | head -1)"
+action="$(printf '%s' "$json" | jq -r '.action // empty' 2>/dev/null)"
+
+# ── 4. route ────────────────────────────────────────────────────────────────
+# In dry-run (OMNI_DRYRUN=1) omni prints the decision and takes no action — used
+# by the test suite to check routing + speed without launching anything.
+finish() {  # $1 = action, $2 = target
+  if [ -n "${OMNI_DRYRUN:-}" ]; then
+    printf 'OMNI_RESULT action=%s parse_ms=%s target=%s\n' "$1" "$parse_ms" "$2"
+    exit 0
+  fi
+}
+escalate() { finish escalate "$query"; exec "$self_dir/ask.sh" "$query"; }
+
+case "$action" in
+  open|reveal|edit)
+    path="$(printf '%s' "$json" | jq -r '.path // empty')"
+    # Safety: only touch real paths inside $HOME.
+    case "$path" in "$HOME"/*) : ;; *) escalate ;; esac
+    [ -e "$path" ] || escalate
+    finish "$action" "$path"
+    case "$action" in
+      open)   smart_open "$path" ;;
+      reveal) if [ -d "$path" ]; then run_detached "$TERMINAL" -e "$FILE_MANAGER" "$path"
+              else run_detached "$TERMINAL" -e "$FILE_MANAGER" --selectfile "$path"; fi ;;
+      edit)   run_detached "$TERMINAL" -e "$EDITOR_CMD" "$path" ;;
+    esac
+    ;;
+  canvas)
+    course="$(printf '%s' "$json" | jq -r '.course // empty')"
+    url="$(canvas_url "$course")"
+    finish canvas "${course:-<dashboard>} $url"
+    run_detached librewolf "$url"
+    ;;
+  url)
+    url="$(printf '%s' "$json" | jq -r '.url // empty')"
+    case "$url" in https://*|http://*) : ;; *) escalate ;; esac
+    finish url "$url"
+    run_detached librewolf "$url"
+    ;;
+  *)
+    escalate
+    ;;
+esac

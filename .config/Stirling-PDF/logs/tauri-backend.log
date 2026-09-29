@@ -1,0 +1,225 @@
+1787072157: 🚀 Tauri app setup started
+1787072157: 🔍 DEBUG: Setup completed
+1787072157: 🚀 Starting bundled backend in background
+1787072157: 🚀 start_backend() called - Attempting to start backend with bundled JRE...
+1787072157: ☁️ Running in SaaS mode - starting local backend
+1787072157: 🔍 Resource directory: "/usr/lib/Stirling PDF"
+1787072157: ✅ Found bundled JRE: "/usr/lib/Stirling PDF/runtime/jre/bin/java"
+1787072157: 📋 Selected JAR: "stirling-pdf-2.14.3.jar"
+1787072157: 📦 Found JAR file: "/usr/lib/Stirling PDF/libs/stirling-pdf-2.14.3.jar"
+1787072157: 📦 Normalized JAR path: "/usr/lib/Stirling PDF/libs/stirling-pdf-2.14.3.jar"
+1787072157: 📦 Normalized Java path: "/usr/lib/Stirling PDF/runtime/jre/bin/java"
+1787072157: 📁 App data directory: /home/parsa/.config/Stirling-PDF
+1787072157: 📁 Log directory: /home/parsa/.config/Stirling-PDF/logs
+1787072157: 📁 Working directory: /home/parsa/.config/Stirling-PDF
+1787072157: 📁 Config directory: /home/parsa/.config/Stirling-PDF/configs
+1787072157: 🔧 Equivalent command: TAURI_PARENT_PID=28568 "/usr/lib/Stirling PDF/runtime/jre/bin/java" -Xmx2g -DBROWSER_OPEN=false -DSTIRLING_PDF_TAURI_MODE=true -Dlogging.file.path=/home/parsa/.config/Stirling-PDF/logs -Dlogging.file.name=stirling-pdf.log -Dserver.port=0 -Dserver.forward-headers-strategy=none -Dsecurity.enableLogin=false -Dsecurity.csrfDisabled=true -jar /usr/lib/Stirling PDF/libs/stirling-pdf-2.14.3.jar
+1787072157: 📁 Backend logs will be in: /home/parsa/.config/Stirling-PDF/logs
+1787072157: ⚙️ Starting backend with bundled JRE...
+1787072157: ✅ Backend started with bundled JRE, monitoring output...
+1787072157: ✅ Backend startup sequence completed, starting flag cleared
+1787072159: 📂 Returning and clearing 0 opened file(s)
+1787072159: 🚀 start_backend() called - Attempting to start backend with bundled JRE...
+1787072159: ☁️ Running in SaaS mode - starting local backend
+1787072159: ⚠️ Backend process already running, skipping start
+1787072159: 📤 Backend: 12:55:59.581 [main] INFO  s.software.SPDF.SPDFApplication - Without additional features in jar
+1787072159: 📤 Backend: 12:55:59.588 [main] INFO  s.s.c.c.ConfigInitializer - Current settings file line count: 0
+1787072159: 📤 Backend: 12:55:59.730 [main] INFO  s.s.c.c.ConfigInitializer - Created settings file from template
+1787072159: 📤 Backend: 12:55:59.731 [main] INFO  s.s.c.c.ConfigInitializer - Created custom_settings file: ./configs/custom_settings.yml
+1787072159: 📤 Backend: 12:55:59.731 [main] INFO  s.software.SPDF.SPDFApplication - Settings file: ./configs/settings.yml
+1787072159: 📤 Backend: 12:55:59.732 [main] INFO  s.software.SPDF.SPDFApplication - Custom settings file: ./configs/custom_settings.yml
+1787072160: 📤 Backend:  ____ _____ ___ ____  _     ___ _   _  ____       ____  ____  _____
+1787072160: 📤 Backend: / ___|_   _|_ _|  _ \| |   |_ _| \ | |/ ___|     |  _ \|  _ \|  ___|
+1787072160: 📤 Backend: \___ \ | |  | || |_) | |    | ||  \| | |  _ _____| |_) | | | | |_
+1787072160: 📤 Backend:  ___) || |  | ||  _ <| |___ | || |\  | |_| |_____|  __/| |_| |  _|
+1787072160: 📤 Backend: |____/ |_| |___|_| \_\_____|___|_| \_|\____|     |_|   |____/|_|
+1787072160: 📤 Backend: Powered by Spring Boot 4.0.6
+1787072161: 📤 Backend: 12:56:01.004 [main] INFO  s.software.SPDF.SPDFApplication - Starting SPDFApplication v2.14.3 using Java 25.0.3 with PID 28638 (/usr/lib/Stirling PDF/libs/stirling-pdf-2.14.3.jar started by parsa in /home/parsa/dotfiles/.config/Stirling-PDF)
+1787072161: 📤 Backend: 12:56:01.005 [main] INFO  s.software.SPDF.SPDFApplication - The following 1 profile is active: "default"
+1787072164: 📤 Backend: 12:56:04.969 [main] INFO  s.s.S.config.MultipartConfiguration - Using default multipart file upload limit: 2000MB
+1787072165: 📤 Backend: 12:56:05.649 [main] INFO  s.software.SPDF.SPDFApplication - Running in Tauri mode. Parent process PID: 28568
+1787072165: 📤 Backend: 12:56:05.658 [main] INFO  s.s.c.config.TempFileConfiguration - Created temporary directory: /tmp/stirling-pdf
+1787072165: 📤 Backend: 12:56:05.716 [main] INFO  s.s.c.c.RuntimePathConfig - Registered watched folder path: /home/parsa/dotfiles/.config/Stirling-PDF/pipeline/watchedFolders
+1787072165: 📤 Backend: 12:56:05.717 [main] INFO  s.s.c.c.RuntimePathConfig - Using Tesseract data path: /usr/share/tesseract-ocr/5/tessdata
+1787072165: 📤 Backend: 12:56:05.756 [virtual-73] WARN  s.s.SPDF.config.ExternalAppDepConfig - Missing dependency: unoconvert - Disabling group: Unoconvert (Affected features: File To PDF)
+1787072165: 📤 Backend: 12:56:05.756 [virtual-56] WARN  s.s.SPDF.config.ExternalAppDepConfig - Missing dependency: tesseract - Disabling group: tesseract (Affected features: Ocr PDF)
+1787072165: 📤 Backend: 12:56:05.756 [virtual-59] WARN  s.s.SPDF.config.ExternalAppDepConfig - Missing dependency: ocrmypdf - Disabling group: OCRmyPDF (Affected features: Ocr PDF)
+1787072165: 📤 Backend: 12:56:05.756 [virtual-64] WARN  s.s.SPDF.config.ExternalAppDepConfig - Missing dependency: weasyprint - Disabling group: Weasyprint (Affected features: Eml To PDF, Markdown To PDF, Url To PDF, Html To PDF)
+1787072165: 📤 Backend: 12:56:05.756 [virtual-54] WARN  s.s.SPDF.config.ExternalAppDepConfig - Missing dependency: rar - Disabling group: rar (Affected features: PDF To Cbr)
+1787072165: 📤 Backend: 12:56:05.756 [virtual-76] WARN  s.s.SPDF.config.ExternalAppDepConfig - Missing dependency: ebook-convert - Disabling group: Calibre (Affected features: PDF To Epub)
+1787072165: 📤 Backend: 12:56:05.764 [virtual-62] WARN  s.s.SPDF.config.ExternalAppDepConfig - qpdf version 11.9.1 is below required 12.0.0 - disabling group(s): qpdf
+1787072165: 📤 Backend: 12:56:05.911 [main] WARN  s.s.SPDF.config.ExternalAppDepConfig - OpenCV not available in Python - Disabling OpenCV features: Extract Image Scans
+1787072165: 📤 Backend: 12:56:05.918 [main] INFO  s.s.S.config.EndpointConfiguration - Disabled tool groups: Calibre, OCRmyPDF, OpenCV, Unoconvert, Weasyprint, qpdf, rar, tesseract (endpoints may have alternative implementations)
+1787072165: 📤 Backend: 12:56:05.919 [main] INFO  s.s.S.config.EndpointConfiguration - Disabled functional groups: enterprise
+1787072165: 📤 Backend: 12:56:05.919 [main] INFO  s.s.S.config.EndpointConfiguration - Total disabled endpoints: 7. Disabled endpoints: eml-to-pdf, extract-image-scans, html-to-pdf, ocr-pdf, pdf-to-cbr, pdf-to-epub, url-to-pdf
+1787072166: 📤 Backend: 12:56:06.614 [main] INFO  s.s.SPDF.config.TauriProcessMonitor - Tauri mode detected. Parent process ID: 28568
+1787072166: 📤 Backend: 12:56:06.616 [main] INFO  s.s.SPDF.config.TauriProcessMonitor - Started monitoring parent Tauri process (PID: 28568)
+1787072166: 📤 Backend: 12:56:06.949 [main] INFO  s.s.c.c.i.InProcessClusterConfiguration - Cluster backplane: in-process (single node)
+1787072166: 📤 Backend: 12:56:06.973 [main] INFO  s.s.S.s.PdfJsonFallbackFontService - Using fallback font location: classpath:/static/fonts/NotoSans-Regular.ttf
+1787072166: 📤 Backend: 12:56:06.977 [main] INFO  s.s.S.s.pdfjson.PdfJsonFontService - [FONT-DEBUG] CFF conversion enabled, checking tool availability...
+1787072166: 📤 Backend: 12:56:06.981 [main] WARN  s.s.S.s.pdfjson.PdfJsonFontService - [FONT-DEBUG] Python command '/opt/venv/bin/python3' not found; Python CFF conversion disabled
+1787072166: 📤 Backend: 12:56:06.985 [main] INFO  s.s.S.s.pdfjson.PdfJsonFontService - [FONT-DEBUG] FontForge command 'fontforge' is available
+1787072166: 📤 Backend: 12:56:06.985 [main] INFO  s.s.S.s.pdfjson.PdfJsonFontService - [FONT-DEBUG] Selected CFF converter method: python
+1787072167: 🔄 Window close requested (will cleanup on actual exit)...
+1787072167: 🔄 App exit requested, cleaning up...
+1787072167: 🧹 App shutting down, cleaning up backend process (PID: 28638)
+1787072167: ✅ Backend process (PID: 28638) terminated during cleanup
+1787072202: 🚀 Tauri app setup started
+1787072202: 🔍 DEBUG: Setup completed
+1787072202: 🚀 Starting bundled backend in background
+1787072202: 🚀 start_backend() called - Attempting to start backend with bundled JRE...
+1787072202: ☁️ Running in SaaS mode - starting local backend
+1787072202: 🔍 Resource directory: "/usr/lib/Stirling PDF"
+1787072202: ✅ Found bundled JRE: "/usr/lib/Stirling PDF/runtime/jre/bin/java"
+1787072202: 📋 Selected JAR: "stirling-pdf-2.14.3.jar"
+1787072202: 📦 Found JAR file: "/usr/lib/Stirling PDF/libs/stirling-pdf-2.14.3.jar"
+1787072202: 📦 Normalized JAR path: "/usr/lib/Stirling PDF/libs/stirling-pdf-2.14.3.jar"
+1787072202: 📦 Normalized Java path: "/usr/lib/Stirling PDF/runtime/jre/bin/java"
+1787072202: 📁 App data directory: /home/parsa/.config/Stirling-PDF
+1787072202: 📁 Log directory: /home/parsa/.config/Stirling-PDF/logs
+1787072202: 📁 Working directory: /home/parsa/.config/Stirling-PDF
+1787072202: 📁 Config directory: /home/parsa/.config/Stirling-PDF/configs
+1787072202: 🔧 Equivalent command: TAURI_PARENT_PID=29046 "/usr/lib/Stirling PDF/runtime/jre/bin/java" -Xmx2g -DBROWSER_OPEN=false -DSTIRLING_PDF_TAURI_MODE=true -Dlogging.file.path=/home/parsa/.config/Stirling-PDF/logs -Dlogging.file.name=stirling-pdf.log -Dserver.port=0 -Dserver.forward-headers-strategy=none -Dsecurity.enableLogin=false -Dsecurity.csrfDisabled=true -jar /usr/lib/Stirling PDF/libs/stirling-pdf-2.14.3.jar
+1787072202: 📁 Backend logs will be in: /home/parsa/.config/Stirling-PDF/logs
+1787072202: ⚙️ Starting backend with bundled JRE...
+1787072202: ✅ Backend started with bundled JRE, monitoring output...
+1787072202: ✅ Backend startup sequence completed, starting flag cleared
+1787072204: 📂 Returning and clearing 0 opened file(s)
+1787072204: 🚀 start_backend() called - Attempting to start backend with bundled JRE...
+1787072204: ☁️ Running in SaaS mode - starting local backend
+1787072204: ⚠️ Backend process already running, skipping start
+1787072204: 📤 Backend: 12:56:44.733 [main] INFO  s.software.SPDF.SPDFApplication - Without additional features in jar
+1787072204: 📤 Backend: 12:56:44.745 [main] INFO  s.s.c.c.ConfigInitializer - Current settings file line count: 437
+1787072206: 🔍 Checking if app is default PDF handler
+1787072206: Linux PDF handler: org.pwmt.zathura.desktop
+1787072206: 📤 Backend: 12:56:46.367 [main] INFO  s.s.c.c.ConfigInitializer - Settings file updated based on template changes.
+1787072206: 📤 Backend: 12:56:46.367 [main] INFO  s.software.SPDF.SPDFApplication - Settings file: ./configs/settings.yml
+1787072206: 📤 Backend: 12:56:46.368 [main] INFO  s.software.SPDF.SPDFApplication - Custom settings file: ./configs/custom_settings.yml
+1787072207: 📤 Backend:  ____ _____ ___ ____  _     ___ _   _  ____       ____  ____  _____
+1787072207: 📤 Backend: / ___|_   _|_ _|  _ \| |   |_ _| \ | |/ ___|     |  _ \|  _ \|  ___|
+1787072207: 📤 Backend: \___ \ | |  | || |_) | |    | ||  \| | |  _ _____| |_) | | | | |_
+1787072207: 📤 Backend:  ___) || |  | ||  _ <| |___ | || |\  | |_| |_____|  __/| |_| |  _|
+1787072207: 📤 Backend: |____/ |_| |___|_| \_\_____|___|_| \_|\____|     |_|   |____/|_|
+1787072207: 📤 Backend: Powered by Spring Boot 4.0.6
+1787072207: 📤 Backend: 12:56:47.537 [main] INFO  s.software.SPDF.SPDFApplication - Starting SPDFApplication v2.14.3 using Java 25.0.3 with PID 29116 (/usr/lib/Stirling PDF/libs/stirling-pdf-2.14.3.jar started by parsa in /home/parsa/dotfiles/.config/Stirling-PDF)
+1787072207: 📤 Backend: 12:56:47.539 [main] INFO  s.software.SPDF.SPDFApplication - The following 1 profile is active: "default"
+1787072208: 🔍 Checking if app is default PDF handler
+1787072209: Linux PDF handler: org.pwmt.zathura.desktop
+1787072212: 📤 Backend: 12:56:52.284 [main] INFO  s.s.S.config.MultipartConfiguration - Using default multipart file upload limit: 2000MB
+1787072213: 📤 Backend: 12:56:53.021 [main] INFO  s.software.SPDF.SPDFApplication - Running in Tauri mode. Parent process PID: 29046
+1787072213: 📤 Backend: 12:56:53.081 [main] INFO  s.s.c.c.RuntimePathConfig - Registered watched folder path: /home/parsa/dotfiles/.config/Stirling-PDF/pipeline/watchedFolders
+1787072213: 📤 Backend: 12:56:53.081 [main] INFO  s.s.c.c.RuntimePathConfig - Using Tesseract data path: /usr/share/tesseract-ocr/5/tessdata
+1787072213: 📤 Backend: 12:56:53.119 [virtual-73] WARN  s.s.SPDF.config.ExternalAppDepConfig - Missing dependency: unoconvert - Disabling group: Unoconvert (Affected features: File To PDF)
+1787072213: 📤 Backend: 12:56:53.119 [virtual-54] WARN  s.s.SPDF.config.ExternalAppDepConfig - Missing dependency: rar - Disabling group: rar (Affected features: PDF To Cbr)
+1787072213: 📤 Backend: 12:56:53.120 [virtual-56] WARN  s.s.SPDF.config.ExternalAppDepConfig - Missing dependency: tesseract - Disabling group: tesseract (Affected features: Ocr PDF)
+1787072213: 📤 Backend: 12:56:53.119 [virtual-64] WARN  s.s.SPDF.config.ExternalAppDepConfig - Missing dependency: weasyprint - Disabling group: Weasyprint (Affected features: Eml To PDF, Markdown To PDF, Url To PDF, Html To PDF)
+1787072213: 📤 Backend: 12:56:53.119 [virtual-58] WARN  s.s.SPDF.config.ExternalAppDepConfig - Missing dependency: ocrmypdf - Disabling group: OCRmyPDF (Affected features: Ocr PDF)
+1787072213: 📤 Backend: 12:56:53.119 [virtual-75] WARN  s.s.SPDF.config.ExternalAppDepConfig - Missing dependency: ebook-convert - Disabling group: Calibre (Affected features: PDF To Epub)
+1787072213: 📤 Backend: 12:56:53.124 [virtual-62] WARN  s.s.SPDF.config.ExternalAppDepConfig - qpdf version 11.9.1 is below required 12.0.0 - disabling group(s): qpdf
+1787072213: 📤 Backend: 12:56:53.220 [main] WARN  s.s.SPDF.config.ExternalAppDepConfig - OpenCV not available in Python - Disabling OpenCV features: Extract Image Scans
+1787072213: 📤 Backend: 12:56:53.226 [main] INFO  s.s.S.config.EndpointConfiguration - Disabled tool groups: Calibre, OCRmyPDF, OpenCV, Unoconvert, Weasyprint, qpdf, rar, tesseract (endpoints may have alternative implementations)
+1787072213: 📤 Backend: 12:56:53.226 [main] INFO  s.s.S.config.EndpointConfiguration - Disabled functional groups: enterprise
+1787072213: 📤 Backend: 12:56:53.226 [main] INFO  s.s.S.config.EndpointConfiguration - Total disabled endpoints: 7. Disabled endpoints: eml-to-pdf, extract-image-scans, html-to-pdf, ocr-pdf, pdf-to-cbr, pdf-to-epub, url-to-pdf
+1787072213: 📤 Backend: 12:56:53.878 [main] INFO  s.s.SPDF.config.TauriProcessMonitor - Tauri mode detected. Parent process ID: 29046
+1787072213: 📤 Backend: 12:56:53.880 [main] INFO  s.s.SPDF.config.TauriProcessMonitor - Started monitoring parent Tauri process (PID: 29046)
+1787072214: 📤 Backend: 12:56:54.326 [main] INFO  s.s.c.c.i.InProcessClusterConfiguration - Cluster backplane: in-process (single node)
+1787072214: 📤 Backend: 12:56:54.363 [main] INFO  s.s.S.s.PdfJsonFallbackFontService - Using fallback font location: classpath:/static/fonts/NotoSans-Regular.ttf
+1787072214: 📤 Backend: 12:56:54.370 [main] INFO  s.s.S.s.pdfjson.PdfJsonFontService - [FONT-DEBUG] CFF conversion enabled, checking tool availability...
+1787072214: 📤 Backend: 12:56:54.375 [main] WARN  s.s.S.s.pdfjson.PdfJsonFontService - [FONT-DEBUG] Python command '/opt/venv/bin/python3' not found; Python CFF conversion disabled
+1787072214: 📤 Backend: 12:56:54.378 [main] INFO  s.s.S.s.pdfjson.PdfJsonFontService - [FONT-DEBUG] FontForge command 'fontforge' is available
+1787072214: 📤 Backend: 12:56:54.379 [main] INFO  s.s.S.s.pdfjson.PdfJsonFontService - [FONT-DEBUG] Selected CFF converter method: python
+1787072216: 📤 Backend: 12:56:56.128 [main] INFO  s.s.S.s.p.t.library.Type3FontLibrary - [TYPE3] Loaded 61 Type3 library entries (signatures=81, aliases=64) from classpath:/type3/library/index.json
+1787072216: 📤 Backend: 12:56:56.409 [main] INFO  s.s.SPDF.service.VeraPDFService - VeraPDF Greenfield initialized successfully
+1787072216: 📤 Backend: 12:56:56.603 [main] INFO  s.s.c.service.MobileScannerService - Mobile scanner temp directory: /tmp/stirling-mobile-scanner
+1787072217: 📤 Backend: 12:56:57.566 [main] INFO  s.s.S.s.CertificateValidationService - Loading certificates from Java system trust store
+1787072217: 📤 Backend: 12:56:57.642 [main] INFO  s.s.S.s.CertificateValidationService - Loaded 121 CA certificates from Java system trust store
+1787072217: 📤 Backend: 12:56:57.643 [main] INFO  s.s.S.s.CertificateValidationService - Loading bundled Mozilla CA certificates from resources
+1787072217: 📤 Backend: 12:56:57.681 [main] INFO  s.s.S.c.web.ReactRoutingController - Static files custom path: ./customFiles/static/
+1787072217: 📤 Backend: 12:56:57.839 [main] INFO  s.s.c.service.TempFileCleanupService - Created LibreOffice temp directory: /tmp/stirling-pdf/libreoffice
+1787072217: 📤 Backend: 12:56:57.839 [main] INFO  s.s.c.service.TempFileCleanupService - Running in Server-jar mode, using conservative cleanup strategy
+1787072217: 📤 Backend: 12:56:57.850 [main] INFO  s.s.c.service.TempFileCleanupService - Startup cleanup complete. Deleted 0 temporary files/directories
+1787072217: 📤 Backend: 12:56:57.882 [main] INFO  s.software.common.util.FileMonitor - Monitoring directory: /home/parsa/dotfiles/.config/Stirling-PDF/pipeline/watchedFolders
+1787072218: 📤 Backend: 12:56:58.297 [main] INFO  s.software.SPDF.config.WebMvcConfig - Tauri mode detected - enabling CORS for Tauri protocols (v1 and v2)
+1787072219: 📤 Backend: 12:56:59.296 [main] WARN  i.m.c.i.binder.jvm.JvmGcMetrics - GC notifications will not be available because com.sun.management.GarbageCollectionNotificationInfo is not present
+1787072219: 📤 Backend: 12:56:59.297 [main] WARN  i.m.c.i.binder.jvm.JvmGcMetrics - GC notifications will not be available because no GarbageCollectorMXBean of the JVM provides any. GCs=[G1 Young Generation, G1 Concurrent GC, G1 Old Generation]
+1787072219: 📤 Backend: 12:56:59.447 [main] INFO  s.software.common.service.JobQueue - Starting JobQueue lifecycle
+1787072219: 📤 Backend: 12:56:59.526 [main] INFO  s.software.SPDF.SPDFApplication - Started SPDFApplication in 13.154 seconds (process running for 16.995)
+1787072219: 🎉 Backend startup completed: 12:56:59.526 [main] INFO  s.software.SPDF.SPDFApplication - Started SPDFApplication in 13.154 seconds (process running for 16.995)
+1787072219: 📤 Backend: 12:56:59.533 [scheduled-vt-2] INFO  s.s.c.service.TempFileCleanupService - Running scheduled temporary file cleanup
+1787072219: 📤 Backend: 12:56:59.533 [scheduled-vt-7] WARN  s.software.common.util.FileMonitor - Not monitoring any directories; attempting to re-register root paths.
+1787072219: 📤 Backend: 12:56:59.534 [scheduled-vt-5] INFO  s.s.S.c.a.p.PipelineDirectoryProcessor - Created directory: /home/parsa/dotfiles/.config/Stirling-PDF/pipeline/watchedFolders
+1787072219: 📤 Backend: 12:56:59.536 [scheduled-vt-2] INFO  s.s.common.util.TempFileManager - Cleaned up 0 old temporary files
+1787072219: 📤 Backend: 12:56:59.536 [scheduled-vt-7] INFO  s.software.common.util.FileMonitor - Registered directory: /home/parsa/dotfiles/.config/Stirling-PDF/pipeline/watchedFolders
+1787072219: 📤 Backend: 12:56:59.537 [scheduled-vt-2] INFO  s.s.c.service.TempFileCleanupService - Cleaned up 0 registered temporary files
+1787072219: 📤 Backend: 12:56:59.547 [main] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v1/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+1787072219: 📤 Backend: 12:56:59.547 [main] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+1787072219: 📤 Backend: 12:56:59.548 [main] INFO  s.software.SPDF.SPDFApplication - Stirling-PDF running on port: 46767
+1787072219: 🎉 Backend started on port: 46767
+1787072219: 🔌 Navigate to: http://127.0.0.1:46767/
+1787072219: 📤 Backend: 12:56:59.549 [main] INFO  s.software.SPDF.SPDFApplication - Stirling-PDF Started.
+1787072219: 📤 Backend: 12:56:59.550 [main] INFO  s.software.SPDF.SPDFApplication - Navigate to http://localhost:46767/
+1787072287: 📤 Backend: 12:58:07.236 [jetty-223] WARN  s.s.S.e.GlobalExceptionHandler - No resource at /api/v1/policies: No static resource api/v1/policies for request '/api/v1/policies'.
+1787072314: 🔍 Checking if app is default PDF handler
+1787072314: Linux PDF handler: org.pwmt.zathura.desktop
+1787072314: 🔍 Checking for updates...
+1787072315: ✅ App is up to date
+1787074019: 📤 Backend: 13:26:59.542 [scheduled-vt-2] INFO  s.s.c.service.TempFileCleanupService - Running scheduled temporary file cleanup
+1787074019: 📤 Backend: 13:26:59.549 [scheduled-vt-2] INFO  s.s.common.util.TempFileManager - Cleaned up 0 old temporary files
+1787074019: 📤 Backend: 13:26:59.550 [scheduled-vt-2] INFO  s.s.c.service.TempFileCleanupService - Cleaned up 0 registered temporary files
+1787075819: 📤 Backend: 13:56:59.552 [scheduled-vt-2] INFO  s.s.c.service.TempFileCleanupService - Running scheduled temporary file cleanup
+1787075819: 📤 Backend: 13:56:59.553 [scheduled-vt-2] INFO  s.s.common.util.TempFileManager - Cleaned up 0 old temporary files
+1787075819: 📤 Backend: 13:56:59.553 [scheduled-vt-2] INFO  s.s.c.service.TempFileCleanupService - Cleaned up 0 registered temporary files
+1787077619: 📤 Backend: 14:26:59.555 [scheduled-vt-2] INFO  s.s.c.service.TempFileCleanupService - Running scheduled temporary file cleanup
+1787077619: 📤 Backend: 14:26:59.555 [scheduled-vt-2] INFO  s.s.common.util.TempFileManager - Cleaned up 0 old temporary files
+1787077619: 📤 Backend: 14:26:59.555 [scheduled-vt-2] INFO  s.s.c.service.TempFileCleanupService - Cleaned up 0 registered temporary files
+1787079635: 📤 Backend: 15:00:35.989 [scheduled-vt-2] INFO  s.s.c.service.TempFileCleanupService - Running scheduled temporary file cleanup
+1787079635: 📤 Backend: 15:00:35.992 [scheduled-vt-2] INFO  s.s.common.util.TempFileManager - Cleaned up 0 old temporary files
+1787079635: 📤 Backend: 15:00:35.993 [scheduled-vt-2] INFO  s.s.c.service.TempFileCleanupService - Cleaned up 0 registered temporary files
+1787086368: 📤 Backend: 16:52:48.470 [scheduled-vt-2] INFO  s.s.c.service.TempFileCleanupService - Running scheduled temporary file cleanup
+1787086368: 📤 Backend: 16:52:48.474 [scheduled-vt-2] INFO  s.s.common.util.TempFileManager - Cleaned up 0 old temporary files
+1787086368: 📤 Backend: 16:52:48.474 [scheduled-vt-2] INFO  s.s.c.service.TempFileCleanupService - Cleaned up 0 registered temporary files
+1787088168: 📤 Backend: 17:22:48.476 [scheduled-vt-2] INFO  s.s.c.service.TempFileCleanupService - Running scheduled temporary file cleanup
+1787088168: 📤 Backend: 17:22:48.477 [scheduled-vt-2] INFO  s.s.common.util.TempFileManager - Cleaned up 0 old temporary files
+1787088168: 📤 Backend: 17:22:48.477 [scheduled-vt-2] INFO  s.s.c.service.TempFileCleanupService - Cleaned up 0 registered temporary files
+1787163184: 📤 Backend: 14:13:04.140 [scheduled-vt-2] INFO  s.s.c.service.TempFileCleanupService - Running scheduled temporary file cleanup
+1787163184: 📤 Backend: 14:13:04.155 [scheduled-vt-2] INFO  s.s.common.util.TempFileManager - Cleaned up 0 old temporary files
+1787163184: 📤 Backend: 14:13:04.155 [scheduled-vt-2] INFO  s.s.c.service.TempFileCleanupService - Cleaned up 0 registered temporary files
+1787164984: 📤 Backend: 14:43:04.156 [scheduled-vt-2] INFO  s.s.c.service.TempFileCleanupService - Running scheduled temporary file cleanup
+1787164984: 📤 Backend: 14:43:04.157 [scheduled-vt-2] INFO  s.s.common.util.TempFileManager - Cleaned up 0 old temporary files
+1787164984: 📤 Backend: 14:43:04.157 [scheduled-vt-2] INFO  s.s.c.service.TempFileCleanupService - Cleaned up 0 registered temporary files
+1787191655: 📤 Backend: 22:07:35.099 [scheduled-vt-2] INFO  s.s.c.service.TempFileCleanupService - Running scheduled temporary file cleanup
+1787191655: 📤 Backend: 22:07:35.113 [scheduled-vt-2] INFO  s.s.common.util.TempFileManager - Cleaned up 0 old temporary files
+1787191655: 📤 Backend: 22:07:35.113 [scheduled-vt-2] INFO  s.s.c.service.TempFileCleanupService - Cleaned up 0 registered temporary files
+1787193455: 📤 Backend: 22:37:35.115 [scheduled-vt-2] INFO  s.s.c.service.TempFileCleanupService - Running scheduled temporary file cleanup
+1787193455: 📤 Backend: 22:37:35.115 [scheduled-vt-2] INFO  s.s.common.util.TempFileManager - Cleaned up 0 old temporary files
+1787193455: 📤 Backend: 22:37:35.115 [scheduled-vt-2] INFO  s.s.c.service.TempFileCleanupService - Cleaned up 0 registered temporary files
+1787195255: 📤 Backend: 23:07:35.117 [scheduled-vt-2] INFO  s.s.c.service.TempFileCleanupService - Running scheduled temporary file cleanup
+1787195255: 📤 Backend: 23:07:35.117 [scheduled-vt-2] INFO  s.s.common.util.TempFileManager - Cleaned up 0 old temporary files
+1787195255: 📤 Backend: 23:07:35.117 [scheduled-vt-2] INFO  s.s.c.service.TempFileCleanupService - Cleaned up 0 registered temporary files
+1787197055: 📤 Backend: 23:37:35.119 [scheduled-vt-2] INFO  s.s.c.service.TempFileCleanupService - Running scheduled temporary file cleanup
+1787197055: 📤 Backend: 23:37:35.119 [scheduled-vt-2] INFO  s.s.common.util.TempFileManager - Cleaned up 0 old temporary files
+1787197055: 📤 Backend: 23:37:35.119 [scheduled-vt-2] INFO  s.s.c.service.TempFileCleanupService - Cleaned up 0 registered temporary files
+1787198855: 📤 Backend: 00:07:35.120 [scheduled-vt-2] INFO  s.s.c.service.TempFileCleanupService - Running scheduled temporary file cleanup
+1787198855: 📤 Backend: 00:07:35.130 [scheduled-vt-2] INFO  s.s.common.util.TempFileManager - Cleaned up 0 old temporary files
+1787198855: 📤 Backend: 00:07:35.130 [scheduled-vt-2] INFO  s.s.c.service.TempFileCleanupService - Cleaned up 0 registered temporary files
+1787239061: 📤 Backend: 11:17:41.341 [scheduled-vt-2] INFO  s.s.c.service.TempFileCleanupService - Running scheduled temporary file cleanup
+1787239061: 📤 Backend: 11:17:41.341 [scheduled-vt-2] INFO  s.s.common.util.TempFileManager - Cleaned up 0 old temporary files
+1787239061: 📤 Backend: 11:17:41.342 [scheduled-vt-2] INFO  s.s.c.service.TempFileCleanupService - Cleaned up 0 registered temporary files
+1787240818: 📤 Backend: 11:46:58.841 [jetty-21456] WARN  s.s.S.e.GlobalExceptionHandler - No resource at /api/v1/policies: No static resource api/v1/policies for request '/api/v1/policies'.
+1787240822: 📤 Backend: 11:47:02.866 [jetty-21545] WARN  s.s.S.e.GlobalExceptionHandler - No resource at /api/v1/policies: No static resource api/v1/policies for request '/api/v1/policies'.
+1787241902: 📤 Backend: 12:05:02.278 [scheduled-vt-2] INFO  s.s.c.service.TempFileCleanupService - Running scheduled temporary file cleanup
+1787241902: 📤 Backend: 12:05:02.278 [scheduled-vt-2] INFO  s.s.common.util.TempFileManager - Cleaned up 0 old temporary files
+1787241902: 📤 Backend: 12:05:02.278 [scheduled-vt-2] INFO  s.s.c.service.TempFileCleanupService - Cleaned up 0 registered temporary files
+1787243702: 📤 Backend: 12:35:02.280 [scheduled-vt-2] INFO  s.s.c.service.TempFileCleanupService - Running scheduled temporary file cleanup
+1787243702: 📤 Backend: 12:35:02.283 [scheduled-vt-2] INFO  s.s.common.util.TempFileManager - Cleaned up 0 old temporary files
+1787243702: 📤 Backend: 12:35:02.284 [scheduled-vt-2] INFO  s.s.c.service.TempFileCleanupService - Cleaned up 0 registered temporary files
+1787247850: 📤 Backend: 13:44:10.685 [scheduled-vt-2] INFO  s.s.c.service.TempFileCleanupService - Running scheduled temporary file cleanup
+1787247850: 📤 Backend: 13:44:10.693 [scheduled-vt-2] INFO  s.s.common.util.TempFileManager - Cleaned up 0 old temporary files
+1787247850: 📤 Backend: 13:44:10.693 [scheduled-vt-2] INFO  s.s.c.service.TempFileCleanupService - Cleaned up 0 registered temporary files
+1787249650: 📤 Backend: 14:14:10.694 [scheduled-vt-2] INFO  s.s.c.service.TempFileCleanupService - Running scheduled temporary file cleanup
+1787249650: 📤 Backend: 14:14:10.695 [scheduled-vt-2] INFO  s.s.common.util.TempFileManager - Cleaned up 0 old temporary files
+1787249650: 📤 Backend: 14:14:10.695 [scheduled-vt-2] INFO  s.s.c.service.TempFileCleanupService - Cleaned up 0 registered temporary files
+1787249714: 🔄 Window close requested (will cleanup on actual exit)...
+1787249714: 🔄 App exit requested, cleaning up...
+1787249714: 🧹 App shutting down, cleaning up backend process (PID: 29116)
+1787249714: ✅ Backend process (PID: 29116) terminated during cleanup

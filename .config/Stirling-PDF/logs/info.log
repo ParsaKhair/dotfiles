@@ -1,0 +1,20 @@
+2026-08-20 00:07:35,120 INFO s.s.c.s.TempFileCleanupService [scheduled-vt-2] Running scheduled temporary file cleanup
+2026-08-20 00:07:35,130 INFO s.s.c.u.TempFileManager [scheduled-vt-2] Cleaned up 0 old temporary files
+2026-08-20 00:07:35,130 INFO s.s.c.s.TempFileCleanupService [scheduled-vt-2] Cleaned up 0 registered temporary files
+2026-08-20 11:17:41,341 INFO s.s.c.s.TempFileCleanupService [scheduled-vt-2] Running scheduled temporary file cleanup
+2026-08-20 11:17:41,341 INFO s.s.c.u.TempFileManager [scheduled-vt-2] Cleaned up 0 old temporary files
+2026-08-20 11:17:41,342 INFO s.s.c.s.TempFileCleanupService [scheduled-vt-2] Cleaned up 0 registered temporary files
+2026-08-20 11:46:58,841 WARN s.s.S.e.GlobalExceptionHandler [jetty-21456] No resource at /api/v1/policies: No static resource api/v1/policies for request '/api/v1/policies'.
+2026-08-20 11:47:02,866 WARN s.s.S.e.GlobalExceptionHandler [jetty-21545] No resource at /api/v1/policies: No static resource api/v1/policies for request '/api/v1/policies'.
+2026-08-20 12:05:02,278 INFO s.s.c.s.TempFileCleanupService [scheduled-vt-2] Running scheduled temporary file cleanup
+2026-08-20 12:05:02,278 INFO s.s.c.u.TempFileManager [scheduled-vt-2] Cleaned up 0 old temporary files
+2026-08-20 12:05:02,278 INFO s.s.c.s.TempFileCleanupService [scheduled-vt-2] Cleaned up 0 registered temporary files
+2026-08-20 12:35:02,280 INFO s.s.c.s.TempFileCleanupService [scheduled-vt-2] Running scheduled temporary file cleanup
+2026-08-20 12:35:02,283 INFO s.s.c.u.TempFileManager [scheduled-vt-2] Cleaned up 0 old temporary files
+2026-08-20 12:35:02,284 INFO s.s.c.s.TempFileCleanupService [scheduled-vt-2] Cleaned up 0 registered temporary files
+2026-08-20 13:44:10,685 INFO s.s.c.s.TempFileCleanupService [scheduled-vt-2] Running scheduled temporary file cleanup
+2026-08-20 13:44:10,693 INFO s.s.c.u.TempFileManager [scheduled-vt-2] Cleaned up 0 old temporary files
+2026-08-20 13:44:10,693 INFO s.s.c.s.TempFileCleanupService [scheduled-vt-2] Cleaned up 0 registered temporary files
+2026-08-20 14:14:10,694 INFO s.s.c.s.TempFileCleanupService [scheduled-vt-2] Running scheduled temporary file cleanup
+2026-08-20 14:14:10,695 INFO s.s.c.u.TempFileManager [scheduled-vt-2] Cleaned up 0 old temporary files
+2026-08-20 14:14:10,695 INFO s.s.c.s.TempFileCleanupService [scheduled-vt-2] Cleaned up 0 registered temporary files
