@@ -3,5 +3,5 @@
 # ibus session bus with the below address.
 # If the IBUS_ADDRESS environment variable is set, it will
 # be used rather than this file.
-IBUS_ADDRESS=unix:path=/home/parsa/.cache/ibus/dbus-yg9f3e7d,guid=f28319563b19c73879552d60674408ae
-IBUS_DAEMON_PID=5811
+IBUS_ADDRESS=unix:path=/home/parsa/.cache/ibus/dbus-t9dVRo4e,guid=84738d0622603a8864d612c769f99f0b
+IBUS_DAEMON_PID=4897

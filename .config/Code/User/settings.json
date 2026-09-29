@@ -1,0 +1,10 @@
+{
+    "chat.viewSessions.enabled": false,
+    "jupyter.widgetScriptSources": [
+        "jsdelivr.com",
+        "unpkg.com"
+    ],
+    "explorer.confirmDragAndDrop": false,
+    "claudeCode.preferredLocation": "panel",
+    "files.autoSave": "afterDelay"
+}

@@ -18,7 +18,7 @@ configuration {
     terminal: "alacritty";
     font: "Arial 12";
     recursivebrowser  {
-        command: "alacritty -e nvim";
+        command: "alacritty -e ranger --selectfile";
       }
 /*	location: 0;*/
 /*	yoffset: 0;*/

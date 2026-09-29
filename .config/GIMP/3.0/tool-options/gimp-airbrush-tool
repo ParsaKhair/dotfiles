@@ -1,0 +1,14 @@
+# GIMP gimp-airbrush-tool options
+
+(foreground
+    (color "HSVA float" 16 "\255\252\52\76\243\276\13\76\320\332n\77\0\0\200\77" 0))
+(brush "Texture Hose 03")
+(dynamics "Pressure Size")
+(pattern "Pine")
+(gradient "FG to BG (RGB)")
+(palette "Color History")
+(brush-size 175)
+(brush-spacing 0.25)
+(brush-force 0.67000000000000004)
+
+# end of gimp-airbrush-tool options
