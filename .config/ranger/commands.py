@@ -11,9 +11,57 @@ from __future__ import (absolute_import, division, print_function)
 
 # You can import any python module as needed.
 import os
+import shlex
+import shutil
+import subprocess
 
 # You always need to import ranger.api.commands here to get the Command class:
 from ranger.api.commands import Command
+
+
+class graphical_preview(Command):
+    """:graphical_preview
+
+    Preview PDFs in Zathura and images in qimgv, floating under Hyprland.
+    Other files use ranger's built-in pager.
+    """
+
+    def execute(self):
+        target = self.fm.thisfile
+        if target is None or not target.is_file:
+            return
+
+        mime = target.mimetype or ""
+        if mime == "application/pdf" or target.path.lower().endswith(".pdf"):
+            viewer = "zathura"
+        elif mime.startswith("image/"):
+            viewer = "qimgv"
+        else:
+            self.fm.display_file()
+            return
+
+        if not shutil.which(viewer):
+            self.fm.notify("Graphical preview requires " + viewer, bad=True)
+            return
+
+        command = [viewer, "--", target.path]
+        if not os.environ.get("HYPRLAND_INSTANCE_SIGNATURE"):
+            self.fm.execute_command(command, flags="f")
+            return
+
+        # Apply rules only to this launch, leaving ordinary viewer windows alone.
+        # Quote paths for Hyprland's shell; exec preserves the PID for its rules.
+        launch = "[float; size 70% 80%; center] exec " + shlex.join(command)
+        try:
+            result = subprocess.run(
+                ["hyprctl", "dispatch", "exec", launch],
+                capture_output=True, text=True, timeout=5, check=True,
+            )
+        except (OSError, subprocess.SubprocessError) as error:
+            self.fm.notify("Could not open graphical preview: " + str(error), bad=True)
+            return
+        if result.stdout.strip() != "ok":
+            self.fm.notify("Could not open graphical preview: " + result.stdout.strip(), bad=True)
 
 
 # Any class that is a subclass of "Command" will be integrated into ranger as a

@@ -77,14 +77,6 @@ window#waybar.hidden {
   color: #a89984;
 }
 
-#workspaces button.active {
-  background: transparent;
-  background-image: url("workspace-active.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 14px 14px;
-}
-
 #workspaces button.active label,
 #workspaces button.active:hover label {
   color: #ebdbb2;
@@ -113,11 +105,8 @@ window#waybar.hidden {
 }
 
 #workspaces button.active:hover {
-  background-color: rgba(80, 73, 69, 0.45);
-  background-image: url("workspace-active.svg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 14px 14px;
+  background: transparent;
+  background-image: none;
 }
 
 #window {
