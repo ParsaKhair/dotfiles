@@ -30,4 +30,14 @@ AGENTS.md
 MEMORY.md
 .ui-backups/
 .config/waybar/quotes.txt
-.config/Code/CachedExtensionVSIXs/
+# Keep editor configuration, not authentication databases, caches, or logs.
+.config/Code/*
+!.config/Code/User/
+.config/Code/User/*
+!.config/Code/User/settings.json
+!.config/Code/User/keybindings.json
+!.config/Code/User/chatLanguageModels.json
+!.config/Code/User/snippets/
+# Clipboard history is private; keep all CopyQ tab data local.
+.config/copyq/*.dat
+.config/copyq/*.dat.*

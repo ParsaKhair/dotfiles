@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Application
+Name=Files (Nautilus)
+# Hide the duplicate Files launcher so rofi drun offers Nemo's Files entry.
+Hidden=true

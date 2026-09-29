@@ -1,0 +1,4 @@
+[D-BUS Service]
+Name=org.freedesktop.FileManager1
+# Firefox/LibreWolf Show in Folder uses this service instead of directory MIME.
+Exec=/usr/bin/nemo --no-default-window
