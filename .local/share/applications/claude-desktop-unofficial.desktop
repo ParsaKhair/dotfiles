@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Claude
+# Avoid the Chromium/Hyprland color-management crash on native Wayland.
+Exec=/usr/bin/claude-desktop-unofficial --disable-features=WaylandWpColorManagerV1 %u
+Icon=claude-desktop-unofficial
+Type=Application
+Terminal=false
+Categories=Office;Utility;
+MimeType=x-scheme-handler/claude;
+StartupWMClass=com.anthropic.Claude

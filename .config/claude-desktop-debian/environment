@@ -1,0 +1,2 @@
+# Render at the monitor's native scale instead of upscaling through XWayland.
+CLAUDE_USE_WAYLAND=1

@@ -1,6 +1,22 @@
 # dotfiles
 Configuration files for my default Fedora machine
 
+Claude Desktop uses native Wayland for sharp HiDPI rendering, configured in
+`.config/claude-desktop-debian/environment`. Its desktop overrides disable
+`WaylandWpColorManagerV1` to avoid a Chromium/Hyprland startup crash
+("Custom primaries aren't supported"). Install both entries for menu launches
+and the portal app ID:
+
+```sh
+mkdir -p ~/.local/share/applications
+ln -sfn ~/dotfiles/.local/share/applications/claude-desktop-unofficial.desktop ~/.local/share/applications/claude-desktop-unofficial.desktop
+ln -sfn ~/dotfiles/.local/share/applications/com.anthropic.Claude.desktop ~/.local/share/applications/com.anthropic.Claude.desktop
+update-desktop-database ~/.local/share/applications
+```
+
+For direct terminal launches, use
+`claude-desktop-unofficial --disable-features=WaylandWpColorManagerV1`.
+
 Nemo is the graphical file manager: directory MIME associations, Hyprland's
 Super+E shortcut, and Firefox/LibreWolf's Show in Folder use it. The user desktop
 override hides Nautilus's duplicate Files entry from rofi drun. Rofi's

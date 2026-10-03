@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Claude
+Exec=/usr/bin/claude-desktop-unofficial --disable-features=WaylandWpColorManagerV1 %u
+Icon=claude-desktop-unofficial
+NoDisplay=true
