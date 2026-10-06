@@ -41,3 +41,4 @@ MEMORY.md
 # Clipboard history is private; keep all CopyQ tab data local.
 .config/copyq/*.dat
 .config/copyq/*.dat.*
+.config/copyq/*.lock

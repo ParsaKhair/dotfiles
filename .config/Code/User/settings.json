@@ -6,5 +6,6 @@
     ],
     "explorer.confirmDragAndDrop": false,
     "claudeCode.preferredLocation": "panel",
-    "files.autoSave": "afterDelay"
+    "files.autoSave": "afterDelay",
+    "workbench.secondarySideBar.defaultVisibility": "hidden"
 }

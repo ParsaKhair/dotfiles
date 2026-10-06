@@ -1,6 +1,12 @@
 # dotfiles
 Configuration files for my default Fedora machine
 
+`main` holds the current desktop configuration. Keep application caches, logs,
+and CopyQ clipboard data and process locks local; they are not portable settings.
+
+The VCC user service and timer in `.config/systemd/user` are machine-specific:
+they depend on `~/vcc-lab` and its Python environment, and use `~/vcc2026`.
+
 Claude Desktop uses native Wayland for sharp HiDPI rendering, configured in
 `.config/claude-desktop-debian/environment`. Its desktop overrides disable
 `WaylandWpColorManagerV1` to avoid a Chromium/Hyprland startup crash

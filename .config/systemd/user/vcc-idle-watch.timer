@@ -1,0 +1,11 @@
+[Unit]
+Description=Check VCC push inactivity every fifteen minutes
+
+[Timer]
+OnCalendar=*:0/15
+Persistent=true
+AccuracySec=30s
+Unit=vcc-idle-watch.service
+
+[Install]
+WantedBy=timers.target
