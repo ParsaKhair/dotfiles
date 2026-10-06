@@ -1,4 +1,9 @@
 [Default Applications]
+image/jpeg=qimgv.desktop;
+image/gif=qimgv.desktop;
+image/png=qimgv.desktop;
+image/bmp=qimgv.desktop;
+image/webp=qimgv.desktop;
 application/pdf=librewolf.desktop
 text/html=librewolf.desktop
 x-scheme-handler/http=librewolf.desktop
