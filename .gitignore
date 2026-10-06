@@ -6,6 +6,11 @@ nohup.out
 .thunderbird/*.ini
 .librewolf/*.default*
 .librewolf/*.ini
+# Browser profile databases and session state are private; keep them local.
+.librewolf/Profile Groups/
+.librewolf/*.sqlite
+.librewolf/*.sqlite-shm
+.librewolf/*.sqlite-wal
 cc*
 *.swp
 *.swo
