@@ -7,5 +7,6 @@
     "explorer.confirmDragAndDrop": false,
     "claudeCode.preferredLocation": "panel",
     "files.autoSave": "afterDelay",
-    "workbench.secondarySideBar.defaultVisibility": "hidden"
+    "workbench.secondarySideBar.defaultVisibility": "hidden",
+    "workbench.colorTheme": "Light 2026"
 }
