@@ -12,7 +12,7 @@
     "hyprland/workspaces"
   ],
   "modules-center": [
-    "hyprland/window"
+    "custom/quote"
   ],
   "modules-right": [
     "tray",
@@ -39,10 +39,14 @@
       "5": []
     }
   },
-  "hyprland/window": {
-    "format": "{class}",
-    "max-length": 28,
-    "separate-outputs": true
+  "custom/quote": {
+    "exec": "~/.config/waybar/scripts/random_quote.sh",
+    "return-type": "json",
+    "interval": 900,
+    "signal": 8,
+    "max-length": 90,
+    "escape": true,
+    "on-click": "pkill -RTMIN+8 waybar"
   },
   "tray": {
     "spacing": 4,

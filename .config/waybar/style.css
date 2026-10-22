@@ -26,7 +26,7 @@ window#waybar.hidden {
 }
 
 #custom-launcher,
-#window,
+#custom-quote,
 #tray,
 #network,
 #bluetooth,
@@ -109,8 +109,8 @@ window#waybar.hidden {
   background-image: none;
 }
 
-#window {
-  font-weight: 600;
+#custom-quote {
+  font-style: italic;
   color: #d5c4a1;
 }
 
